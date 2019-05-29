@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+        <ImageView
+                android:layout_gravity="center_horizontal"
+                android:id="@+id/img"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:src="@mipmap/ic_launcher_round"
+                android:layout_marginBottom="50dp"
+                />
+
+        <EditText
+                android:padding="16dp"
+                android:id="@+id/etName"
+                android:layout_margin="16dp"
+                android:background="@drawable/card_background_style"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_person"
+                android:hint="Username"
+                android:drawablePadding="16dp"
+                />
+
+        <EditText
+                android:padding="16dp"
+                android:id="@+id/etPassword"
+                android:layout_margin="16dp"
+                android:background="@drawable/card_background_style"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_lock"
+                android:hint="Password"
+                android:drawablePadding="16dp"
+                android:inputType="numberPassword"
+                />
+
+        <Button
+                android:textColor="#fff"
+                android:id="@+id/btnNext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:text="Login"
+                android:textAllCaps="false"
+                android:background="@drawable/btn_round"
+                android:backgroundTint="@color/colorPrimary"/>
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>

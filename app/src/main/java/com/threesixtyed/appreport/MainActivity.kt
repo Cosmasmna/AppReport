@@ -10,15 +10,17 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        btn.setOnClickListener{
-           /* val database = FirebaseDatabase.getInstance()
+       /* btn.setOnClickListener{
+           *//* val database = FirebaseDatabase.getInstance()
             val myRef = database.getReference("message")
 
-            myRef.setValue("Hello, World!")*/
+            myRef.setValue("Hello, World!")*//*
             val database=FirebaseDatabase.getInstance()
             val myRef=database.getReference("message")
             myRef.setValue("hello")
-        }
+        }*/
+
+
 
     }
 }
