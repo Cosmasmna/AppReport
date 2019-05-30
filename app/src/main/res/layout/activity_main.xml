@@ -21,8 +21,10 @@
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
+                android:padding="8dp"
                 app:popupTheme="@style/AppTheme.PopupOverlay"
-                app:logo="@drawable/ed_loglo">
+                app:logo="@drawable/app_logo"
+                >
 
         </android.support.v7.widget.Toolbar>
 

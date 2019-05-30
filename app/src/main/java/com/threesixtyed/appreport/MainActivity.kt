@@ -1,10 +1,13 @@
 package com.threesixtyed.appreport
 
+import android.content.Intent
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
+import com.google.firebase.database.FirebaseDatabase
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
@@ -15,6 +18,8 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
+    lateinit var btnReport: Button
+
 
     private var databaseReference: DatabaseReference? = null
     private var ref: DatabaseReference? = null
@@ -24,9 +29,16 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        /* btn.setOnClickListener{
+            *//* val database = FirebaseDatabase.getInstance()
+            val myRef = database.getReference("message")
 
         sharePreferences=getSharedPreferences("mypref", Context.MODE_PRIVATE)
 
+        btnReport=findViewById(R.id.btnReport)
+        btnReport.setOnClickListener() {
+            startActivity(Intent(this, ReportDeatilActivity::class.java))
+        }
         setSupportActionBar(toolbar)
 
     }
