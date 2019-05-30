@@ -1,6 +1,5 @@
 package com.threesixtyed.appreport
 
-import android.content.Intent
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
@@ -29,11 +28,10 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        /* btn.setOnClickListener{
-            *//* val database = FirebaseDatabase.getInstance()
-            val myRef = database.getReference("message")
 
         sharePreferences=getSharedPreferences("mypref", Context.MODE_PRIVATE)
+
+
 
         btnReport=findViewById(R.id.btnReport)
         btnReport.setOnClickListener() {
