@@ -5,9 +5,32 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="8dp"
+
         android:background="@drawable/card_background_style"
         android:layout_margin="8dp">
+
+
+    <LinearLayout
+            android:background="#F3B4B4B4"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:gravity="bottom"
+            android:orientation="vertical"
+            android:rotation="45"
+            android:translationX="50dp"
+            android:translationY="-30dp"
+            >
+
+        <!--<ImageView-->
+                <!--android:layout_gravity="center_horizontal"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="24dp"-->
+                <!--android:src="@drawable/ic_person"-->
+                <!--android:layout_marginTop="8dp"-->
+                <!--/>-->
+    </LinearLayout>
 
 
     <ImageView
@@ -52,17 +75,8 @@
             android:layout_height="wrap_content"
             tools:layout_editor_absoluteX="8dp"
             android:layout_marginTop="16dp"
-            app:layout_constraintTop_toBottomOf="@+id/img">
-
-        <Button
-                android:layout_margin="24dp"
-                android:layout_weight="1"
-                android:id="@+id/btnReport"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/btn_round"
-                android:text="Report"
-                android:textAllCaps="false"/>
+            app:layout_constraintTop_toBottomOf="@+id/img"
+            android:id="@+id/linearLayout">
 
         <Button
                 android:layout_margin="24dp"
@@ -72,9 +86,20 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/btn_round"
                 android:text="Download"
+                android:textAllCaps="false"/>
+
+        <Button
+                android:layout_margin="24dp"
+                android:layout_weight="1"
+                android:id="@+id/btnReport"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_round"
+                android:text="Report"
                 android:textColor="#fff"
                 android:backgroundTint="@color/colorPrimary"
                 android:textAllCaps="false"/>
+
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

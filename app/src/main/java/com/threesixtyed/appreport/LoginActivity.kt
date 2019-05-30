@@ -16,8 +16,8 @@ class LoginActivity : AppCompatActivity() {
 
         btnNext = findViewById(R.id.btnNext)
 
-        btnNext.setOnClickListener(View.OnClickListener {
+        btnNext.setOnClickListener {
             startActivity(Intent(this, MainActivity::class.java))
-        })
+        }
     }
 }
