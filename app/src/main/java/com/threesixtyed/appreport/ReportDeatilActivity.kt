@@ -1,5 +1,6 @@
 package com.threesixtyed.appreport
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.app.AlertDialog
@@ -22,6 +23,10 @@ class ReportDeatilActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_report_deatil)
 
+        setSupportActionBar(activity_report_toolbar)
+       // var intent=Intent()
+        var app_name=intent.getSerializableExtra("app_name")
+        activity_report_toolbar.setTitle(app_name.toString())
         app_version_list!!.add(Version("v11","http","122"))
         app_version_list!!.add(Version("v22","http","122"))
 
@@ -29,6 +34,9 @@ class ReportDeatilActivity : AppCompatActivity() {
             Toast.makeText(this,"click",Toast.LENGTH_LONG).show()
             showapp_version()
         }
+
+
+
     }
 
     private fun showapp_version() {

@@ -25,6 +25,7 @@ class AppAdapter(val items : ArrayList<AppInfo>, val context: Context) : Recycle
 
         holder.btnReport.setOnClickListener {
             val i=Intent(context,ReportDeatilActivity::class.java)
+            i.putExtra("app_name",items.get(position).app_name)
                 i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                 context.startActivity(i)
         }

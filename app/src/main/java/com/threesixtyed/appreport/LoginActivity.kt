@@ -62,8 +62,7 @@ class LoginActivity : AppCompatActivity() {
             if (name == "") {
                 etName.error="Enter user name"
 
-            } else {
-                if (password == "") {
+            } else if (password == "") {
                     etPassword.error = "Enter password"
                 } else {
 
@@ -108,6 +107,9 @@ class LoginActivity : AppCompatActivity() {
                                         })
 
                                 }
+                                Toast.makeText(this@LoginActivity,"Unsuccessful",Toast.LENGTH_LONG).show()
+
+
 
 
                             }
@@ -115,8 +117,8 @@ class LoginActivity : AppCompatActivity() {
 
                         }
                     }
-                    databaseReference!!.addValueEventListener(li)
-                }
+                    databaseReference!!.addListenerForSingleValueEvent(li)
+
             }
         }
 
