@@ -28,6 +28,31 @@ class LoginActivity : AppCompatActivity() {
 
         databaseReference = FirebaseDatabase.getInstance().getReference("user")
 
+
+
+/*
+        btnLogin.setOnClickListener {
+            var name: String = etName.text.toString()
+            var password: String = etPassword.text.toString()
+            var user=User(name,password)
+            databaseReference!!.push().key
+            databaseReference!!.child(databaseReference!!.push().key.toString()).setValue(user)
+
+
+            if (name==""){
+
+            }
+            else if (password==""){
+
+            }else{
+
+            }
+
+        }
+
+*/
+
+
         btnLogin.setOnClickListener {
 
             var success:Boolean = false
@@ -94,5 +119,8 @@ class LoginActivity : AppCompatActivity() {
                 }
             }
         }
+
+
+
     }
 }

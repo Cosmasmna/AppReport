@@ -5,23 +5,24 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.widget.LinearLayoutManager
+import android.util.Log
 import android.widget.Button
 import com.google.firebase.database.FirebaseDatabase
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
-import android.widget.Toolbar
 import com.google.firebase.database.*
-import kotlinx.android.synthetic.main.activity_login.*
+import com.threesixtyed.appreport.adapter.AppAdapter
+import com.threesixtyed.appreport.model.AppInfo
+import com.threesixtyed.appreport.model.Version
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var btnReport: Button
 
 
     private var databaseReference: DatabaseReference? = null
-    private var ref: DatabaseReference? = null
 
     lateinit var sharePreferences: SharedPreferences
 
@@ -29,19 +30,71 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        sharePreferences=getSharedPreferences("mypref", Context.MODE_PRIVATE)
+        databaseReference=FirebaseDatabase.getInstance().getReference("app")
+
         setSupportActionBar(toolbar)
+        bindData()
+    }
 
-        sharePreferences = getSharedPreferences("mypref", Context.MODE_PRIVATE)
-
+    private fun bindData() {
+        var app_list=ArrayList<AppInfo>()
 
 
         btnReport = findViewById(R.id.btnReport)
         btnReport.setOnClickListener() {
             startActivity(Intent(this, ReportDeatilActivity::class.java))
         }
+        databaseReference!!.addValueEventListener(object :ValueEventListener{
+
+
+            override fun onCancelled(p0: DatabaseError) {
+                Log.i("DbError>>>Main1",p0.toString())
+            }
+
+            override fun onDataChange(p0: DataSnapshot) {
+                app_list.clear()
+
+                if (p0.exists()){
+
+
+                    for (h in p0.children){
+                        Log.i("AppInfo name>>>",h.key)
+
+                        var app_name=h.child("app_name").value.toString()
+                        var img_url=h.child("img_url").value.toString()
+                        var latest_vname=h.child("latest_version").child("v_name").value.toString()
+                        var latest_vlink=h.child("latest_version").child("link").value.toString()
+
+                        var appInfo=AppInfo(app_name,img_url,latest_vname,latest_vlink)
+
+                        app_list.add(appInfo)
+
+
+
+                        Log.i("url",app_name+img_url+latest_vname+latest_vlink)
+                    }
+                    Log.i("List Size",""+app_list.size)
+
+                    bindAdapter(app_list)
+
+
+                }
+            }
+        })
+
 
 
     }
+
+    private fun bindAdapter(app_list: ArrayList<AppInfo>) {
+        recyclerView.layoutManager=LinearLayoutManager(this)
+        var adapter=AppAdapter(app_list,applicationContext)
+        recyclerView.adapter=adapter
+        adapter.notifyDataSetChanged()
+
+    }
+
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.main_menu, menu)

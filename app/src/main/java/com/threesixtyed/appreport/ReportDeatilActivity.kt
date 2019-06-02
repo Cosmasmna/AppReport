@@ -7,6 +7,6 @@ class ReportDeatilActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_report_deatil)
+        setContentView(R.layout.report_deati_rowl)
     }
 }
