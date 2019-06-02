@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.threesixtyed.appreport.R
+import com.threesixtyed.appreport.ReportDeatilActivity
 import com.threesixtyed.appreport.model.AppInfo
 import kotlinx.android.synthetic.main.app_available_item.view.*
 
@@ -21,12 +22,20 @@ class AppAdapter(val items : ArrayList<AppInfo>, val context: Context) : Recycle
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder?.appname?.text= items.get(position).app_name
         holder?.appversion?.text= items.get(position).latest_vname
+
+        holder.btnReport.setOnClickListener {
+            val i=Intent(context,ReportDeatilActivity::class.java)
+                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                context.startActivity(i)
+        }
+
         Glide.with(context).load(items.get(position).img_url)
             .transition(DrawableTransitionOptions.withCrossFade())
             .into(holder.img)
         var uri=Uri.parse(items.get(position).latest_vlink)
         holder.btnDownload.setOnClickListener {
             val intent=Intent(Intent.ACTION_VIEW,uri)
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
             context.startActivity(intent)
 
 

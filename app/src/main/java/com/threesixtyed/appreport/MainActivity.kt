@@ -40,11 +40,11 @@ class MainActivity : AppCompatActivity() {
     private fun bindData() {
         var app_list=ArrayList<AppInfo>()
 
-
+/*
         btnReport = findViewById(R.id.btnReport)
         btnReport.setOnClickListener() {
             startActivity(Intent(this, ReportDeatilActivity::class.java))
-        }
+        }*/
         databaseReference!!.addValueEventListener(object :ValueEventListener{
 
 
