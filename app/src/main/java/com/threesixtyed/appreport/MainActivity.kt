@@ -29,35 +29,37 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        sharePreferences=getSharedPreferences("mypref", Context.MODE_PRIVATE)
+        setSupportActionBar(toolbar)
+
+        sharePreferences = getSharedPreferences("mypref", Context.MODE_PRIVATE)
 
 
 
-        btnReport=findViewById(R.id.btnReport)
+        btnReport = findViewById(R.id.btnReport)
         btnReport.setOnClickListener() {
             startActivity(Intent(this, ReportDeatilActivity::class.java))
         }
-        setSupportActionBar(toolbar)
+
 
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.main_menu,menu)
+        menuInflater.inflate(R.menu.main_menu, menu)
         return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-       return when(item?.itemId){
-            R.id.logout->{
+        return when (item?.itemId) {
+            R.id.logout -> {
 
-                startActivity(Intent(this,LoginActivity::class.java))
+                startActivity(Intent(this, LoginActivity::class.java))
 
                 sharePreferences.edit().clear().commit()
                 finish()
-                Toast.makeText(this,"Logout",Toast.LENGTH_LONG).show()
+                Toast.makeText(this, "Logout", Toast.LENGTH_LONG).show()
                 true
             }
-           else ->super.onOptionsItemSelected(item)
-       }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 }
