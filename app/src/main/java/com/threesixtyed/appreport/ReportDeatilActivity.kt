@@ -9,6 +9,8 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.Toast
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import com.threesixtyed.appreport.adapter.AndroidVersionAdapter
 import com.threesixtyed.appreport.model.Version
 import kotlinx.android.synthetic.main.activity_report_deatil.*
@@ -17,6 +19,9 @@ import kotlinx.android.synthetic.main.android_version_dialog.*
 class ReportDeatilActivity : AppCompatActivity() {
 
     val app_version_list= ArrayList<Version>()
+    val firebase:FirebaseDatabase?=null
+    val myRef:DatabaseReference?=null
+
 
     val versionList= ArrayList<String>()
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,6 +32,8 @@ class ReportDeatilActivity : AppCompatActivity() {
        // var intent=Intent()
         var app_name=intent.getSerializableExtra("app_name")
         activity_report_toolbar.setTitle(app_name.toString())
+        myRef=firebase.getReference("")
+
         app_version_list!!.add(Version("v11","http","122"))
         app_version_list!!.add(Version("v22","http","122"))
 
