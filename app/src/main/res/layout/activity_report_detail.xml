@@ -50,7 +50,7 @@
 
 
         <LinearLayout
-            android:id="@+id/android_version_layout"
+            android:id="@+id/app_version_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -78,11 +78,12 @@
                 android:textSize="18dp" />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:id="@+id/tv_app_version"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginBottom="8dp"
-                android:text="V 1.4 "
+                android:hint="V 1.4 "
                 android:textSize="14dp" />
 
         </LinearLayout>
@@ -97,10 +98,10 @@
             android:text="User Phone info"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/android_version_layout" />
+            app:layout_constraintTop_toBottomOf="@+id/app_version_layout" />
 
         <LinearLayout
-            android:id="@+id/phone_ver"
+            android:id="@+id/android_version_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -125,22 +126,22 @@
                 android:layout_marginRight="16dp"
                 android:layout_marginBottom="8dp"
                 android:drawableRight="@drawable/ic_edit_black_24dp"
-                android:text="Phone Version"
+                android:text="Android Version"
                 android:textSize="18dp" />
 
             <TextView
-                android:id="@+id/ph"
-                android:layout_width="wrap_content"
+                android:id="@+id/tv_android_version"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginBottom="8dp"
-                android:text="V 1.4 "
+                android:hint="8.1"
                 android:textSize="14dp" />
 
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/phone_model"
+            android:id="@+id/phone_model_layout"
             android:layout_width="match_parent"
 
             android:layout_height="wrap_content"
@@ -155,7 +156,7 @@
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/phone_ver">
+            app:layout_constraintTop_toBottomOf="@+id/android_version_layout">
 
             <TextView
                 android:layout_width="match_parent"
@@ -169,11 +170,12 @@
                 android:textSize="18dp" />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:id="@+id/tv_phone_model"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginBottom="8dp"
-                android:text="V 1.4 "
+                android:hint="Samung"
                 android:textSize="14dp" />
 
         </LinearLayout>
@@ -188,7 +190,7 @@
             android:text="Reprot type"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/phone_model" />
+            app:layout_constraintTop_toBottomOf="@+id/phone_model_layout" />
 
         <RadioGroup
             android:id="@+id/radioGroup"
@@ -206,7 +208,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="20dp"
-                android:text="Bug Report" />
+                android:text="Bug Report"
+                android:checked="true"/>
 
             <RadioButton
                 android:id="@+id/radio_requestfeatures"

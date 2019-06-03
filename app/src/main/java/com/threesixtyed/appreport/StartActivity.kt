@@ -22,8 +22,15 @@ class StartActivity : AppCompatActivity() {
             override fun onFinish() {
 
                 if (sharedPreferences.contains("name")){
-                    startActivity(Intent(this@StartActivity,MainActivity::class.java))
-                    finish()
+                    if (sharedPreferences.getString("name","").equals("admin")){
+                        startActivity(Intent(this@StartActivity,AdminMainActivity::class.java))
+                        finish()
+
+                    }else{
+                        startActivity(Intent(this@StartActivity,MainActivity::class.java))
+                        finish()
+                    }
+
                 }else {
                     startActivity(Intent(this@StartActivity, LoginActivity::class.java))
                     finish()

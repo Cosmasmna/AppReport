@@ -1,6 +1,5 @@
 package com.threesixtyed.appreport
 
-
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
@@ -16,7 +15,6 @@ import android.widget.Toast
 import com.google.firebase.database.*
 import com.threesixtyed.appreport.adapter.AppAdapter
 import com.threesixtyed.appreport.model.AppInfo
-import com.threesixtyed.appreport.model.Version
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {

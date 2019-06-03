@@ -39,12 +39,12 @@ class LoginActivity : AppCompatActivity() {
             databaseReference!!.child(databaseReference!!.push().key.toString()).setValue(user)
 
 
-            if (name==""){
+            if (name.equals(""){
 
-            }
-            else if (password==""){
+           ) }
+            else if (password.equals(""){
 
-            }else{
+           ) }else{
 
             }
 
@@ -59,12 +59,25 @@ class LoginActivity : AppCompatActivity() {
 
             var name: String = etName.text.toString()
             var password: String = etPassword.text.toString()
-            if (name == "") {
-                etName.error="Enter user name"
+            if (name .equals( "")) {
+                          etName.error="Enter user name"
 
-            } else if (password == "") {
-                    etPassword.error = "Enter password"
-                } else {
+            } else if (password .equals( "") ){
+                           etPassword.error = "Enter password"
+            }
+
+            else if (name.equals("admin") && password.equals("123")){
+
+                Toast.makeText(this,"Login As Admin",Toast.LENGTH_LONG).show()
+
+                val editor=sharePreferences.edit()
+                editor.putString("name",name)
+                editor.commit()
+                startActivity(Intent(this@LoginActivity,AdminMainActivity::class.java))
+                finish()
+            }
+
+            else {
 
                     val li = object : ValueEventListener {
                         override fun onCancelled(p0: DatabaseError) {
@@ -85,9 +98,9 @@ class LoginActivity : AppCompatActivity() {
                                             override fun onDataChange(dataSnapshot: DataSnapshot) {
                                                 if (dataSnapshot.exists()) {
                                                     val user = dataSnapshot.getValue(User::class.java)
-                                                    if (name == user!!.user_name) {
+                                                    if (name .equals( user!!.user_name)) {
 
-                                                        if (password == user!!.password) {
+                                                        if (password .equals( user!!.password)) {
                                                             success = true
 
                                                             val editor=sharePreferences.edit()
@@ -107,10 +120,6 @@ class LoginActivity : AppCompatActivity() {
                                         })
 
                                 }
-                                Toast.makeText(this@LoginActivity,"Unsuccessful",Toast.LENGTH_LONG).show()
-
-
-
 
                             }
 
@@ -118,11 +127,8 @@ class LoginActivity : AppCompatActivity() {
                         }
                     }
                     databaseReference!!.addListenerForSingleValueEvent(li)
-
             }
         }
-
-
 
     }
 }
