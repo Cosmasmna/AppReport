@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.app.AlertDialog
 import android.util.Log
+import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.EditText
@@ -41,11 +42,24 @@ class ReportDeatilActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         return when (item?.itemId) {
             R.id.item_save -> {
-                if (isChoice()) {
-                    saveReport()
-                    Toast.makeText(this, "Success", Toast.LENGTH_LONG).show()
-                    finish()
-                }
+               // if (isChoice()) {
+
+                    //--alert dialog for confirmation
+                    val alertDialogBuilder: AlertDialog.Builder = AlertDialog.Builder(this, R.style.customizedAlert)
+                    val dialogView = LayoutInflater.from(this).inflate(R.layout.comfirm_custom_dialog, null)
+                    alertDialogBuilder.setTitle("Chemistry")
+                    alertDialogBuilder.setView(dialogView)
+//                    alertDialogBuilder.setItems(vL) { dialog, which ->
+//                        Toast.makeText(this, vL[which], Toast.LENGTH_LONG).show()
+//                        tv_android_version!!.text = vL[which]
+//                    }
+                    alertDialogBuilder.show()
+
+
+//                    saveReport()
+//                    Toast.makeText(this, "Success", Toast.LENGTH_LONG).show()
+//                    finish()
+              //  }
                 true
 
             }
