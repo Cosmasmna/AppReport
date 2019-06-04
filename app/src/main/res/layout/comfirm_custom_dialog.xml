@@ -30,14 +30,14 @@
         android:layout_marginRight="8dp"
         android:text="App Version : "
         android:textAlignment="textEnd"
-        app:layout_constraintEnd_toStartOf="@+id/textView6"
+        app:layout_constraintEnd_toStartOf="@+id/txtAppVersion"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/textView1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/txtAppVersion"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -56,13 +56,13 @@
         android:layout_marginTop="16dp"
         android:text="Phone model : "
         android:textAlignment="textEnd"
-        app:layout_constraintEnd_toStartOf="@+id/txtPhonoeModel"
+        app:layout_constraintEnd_toStartOf="@+id/txtPhoneModel"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <TextView
-        android:id="@+id/txtPhonoeModel"
+        android:id="@+id/txtPhoneModel"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -72,7 +72,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/textView1"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+        app:layout_constraintTop_toBottomOf="@+id/txtAppVersion" />
 
     <TextView
         android:id="@+id/textView2"
@@ -97,7 +97,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/textView2"
-        app:layout_constraintTop_toBottomOf="@+id/txtPhonoeModel" />
+        app:layout_constraintTop_toBottomOf="@+id/txtPhoneModel" />
 
     <TextView
         android:id="@+id/textView8"
@@ -146,7 +146,7 @@
         app:layout_constraintTop_toBottomOf="@+id/txtReportDetail">
 
         <Button
-            android:id="@+id/btnDownload"
+            android:id="@+id/btnCancel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
@@ -161,7 +161,7 @@
             android:textColor="#000" />
 
         <Button
-            android:id="@+id/btnReport"
+            android:id="@+id/btnConfirm"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"

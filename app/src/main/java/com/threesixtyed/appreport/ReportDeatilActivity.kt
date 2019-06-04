@@ -5,16 +5,12 @@ import android.content.SharedPreferences
 import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.support.design.widget.Snackbar
 import android.support.v7.app.AlertDialog
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.EditText
-import android.widget.RadioButton
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import com.google.firebase.database.*
 import com.threesixtyed.appreport.model.AppReport
 import com.threesixtyed.appreport.model.AppVersion
@@ -45,32 +41,15 @@ class ReportDeatilActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         return when (item?.itemId) {
             R.id.item_save -> {
-               // if (isChoice()) {
 
                     //--alert dialog for confirmation
-                    val alertDialogBuilder: AlertDialog.Builder = AlertDialog.Builder(this, R.style.customizedAlert)
-                    val dialogView = LayoutInflater.from(this).inflate(R.layout.comfirm_custom_dialog, null)
-                    alertDialogBuilder.setTitle("Chemistry")
-                    alertDialogBuilder.setView(dialogView)
-//                    alertDialogBuilder.setItems(vL) { dialog, which ->
-//                        Toast.makeText(this, vL[which], Toast.LENGTH_LONG).show()
-//                        tv_android_version!!.text = vL[which]
-//                    }
-                    alertDialogBuilder.show()
 
-
-//                    saveReport()
-//                    Toast.makeText(this, "Success", Toast.LENGTH_LONG).show()
-//                    finish()
-              //  }
                 if (isChoice()) {
 
 
                     confirmSendDialog()
-                    saveReport()
 
-                    Toast.makeText(this, "Success", Toast.LENGTH_LONG).show()
-                    finish()
+                    //finish()
                 }
                 true
 
@@ -80,6 +59,34 @@ class ReportDeatilActivity : AppCompatActivity() {
     }
 
     private fun confirmSendDialog() {
+        val alertDialogBuilder: AlertDialog.Builder = AlertDialog.Builder(this, R.style.customizedAlert)
+
+        var alertDialog=alertDialogBuilder.create()
+
+        val dialogView = LayoutInflater.from(this).inflate(R.layout.comfirm_custom_dialog, null)
+        var btn=dialogView.findViewById<Button>(R.id.btnConfirm)
+        var txtAppVersion=dialogView.findViewById<TextView>(R.id.txtAppVersion)
+        var txtPhoneModel=dialogView.findViewById<TextView>(R.id.txtPhoneModel)
+        var txtAndroidVersion=dialogView.findViewById<TextView>(R.id.txtAndroidVersion)
+        var txtReportType=dialogView.findViewById<TextView>(R.id.txtReportType)
+        var txtReportDetail=dialogView.findViewById<TextView>(R.id.txtReportDetail)
+        var btnCancel=dialogView.findViewById<TextView>(R.id.btnCancel)
+        txtAppVersion.text=tv_app_version.text.toString()
+        txtAndroidVersion.text=tv_android_version.text.toString()
+        txtPhoneModel.text=tv_phone_model.text.toString()
+        txtReportDetail.text=et_reportdetail.text.toString()
+        txtReportType.text=selectedRadio.text.toString()
+        btnCancel.setOnClickListener {
+            alertDialog.cancel()
+
+        }
+        btn.setOnClickListener {
+            saveReport()
+            alertDialog.dismiss()
+        }
+        alertDialog.setTitle("Chemistry")
+        alertDialog.setView(dialogView)
+        alertDialog.show()
 
     }
 
@@ -113,8 +120,7 @@ class ReportDeatilActivity : AppCompatActivity() {
         val currentDate = sdf.format(Date())
 
         var name = sharePreferences.getString("name", "")
-        var selected = radioGroup.checkedRadioButtonId
-        var selectedRadio: RadioButton = findViewById(selected)
+
         databaseReference = FirebaseDatabase.getInstance().getReference("report")
         var key = databaseReference!!.push().key.toString()
         var appReport = AppReport(
@@ -131,13 +137,17 @@ class ReportDeatilActivity : AppCompatActivity() {
 
         databaseReference!!.child(app_name.toString()).child(key).setValue(appReport)
 
+
     }
 
 
+    lateinit var selectedRadio:RadioButton
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_report_detail)
 
+        var selected = radioGroup.checkedRadioButtonId
+        selectedRadio= findViewById(selected)
         databaseReference = FirebaseDatabase.getInstance().getReference("app")
         sharePreferences = getSharedPreferences("mypref", Context.MODE_PRIVATE)
 
