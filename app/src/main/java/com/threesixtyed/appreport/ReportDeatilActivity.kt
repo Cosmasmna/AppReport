@@ -135,7 +135,12 @@ class ReportDeatilActivity : AppCompatActivity() {
             name
         )
 
-        databaseReference!!.child(app_name.toString()).child(key).setValue(appReport)
+        databaseReference!!.child(app_name.toString()).child(key).setValue(appReport).addOnSuccessListener {
+            Toast.makeText(this,"Success",Toast.LENGTH_LONG).show()
+        }
+
+
+        
 
 
     }

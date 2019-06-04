@@ -84,6 +84,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginBottom="8dp"
                 android:hint="V 1.4 "
+                android:textColor="#000"
                 android:textSize="14dp" />
 
         </LinearLayout>
@@ -136,6 +137,8 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginBottom="8dp"
                 android:hint="8.1"
+                android:textColor="#000"
+
                 android:textSize="14dp" />
 
         </LinearLayout>
@@ -175,7 +178,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginBottom="8dp"
-                android:hint="Samung"
+                android:hint="Samsung"
+                android:textColor="#000"
+
                 android:textSize="14dp" />
 
         </LinearLayout>
