@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+    <layoutAnimation
+
+        xmlns:android="http://schemas.android.com/apk/res/android"
+
+        android:animation="@anim/recycler_anim"
+
+        android:delay="25%"
+
+        android:animationOrder="normal"
+
+        />
+
+</set>

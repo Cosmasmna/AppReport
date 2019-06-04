@@ -28,7 +28,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:fitsSystemWindows="true"
-                app:navigationIcon="@drawable/ic_bug_report"
                 app:popupTheme="@style/AppTheme.PopupOverlay"
                 app:subtitle="Report"
                 app:title="Chemistry DTP">
@@ -188,7 +187,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="24dp"
-            android:text="Reprot type"
+            android:text="Report type"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/phone_model_layout" />

@@ -182,6 +182,7 @@ class ReportDeatilActivity : AppCompatActivity() {
 
     private fun select_phone_model() {
         val et_ph_model = EditText(this)
+        et_ph_model.hint="Enter phone model"
         val dialog: AlertDialog = AlertDialog.Builder(this)
             .setTitle("Phone Model")
             .setView(et_ph_model)
