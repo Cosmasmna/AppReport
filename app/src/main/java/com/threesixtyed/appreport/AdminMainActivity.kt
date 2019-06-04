@@ -20,6 +20,7 @@ class AdminMainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_admin_main)
+        setTitle("Dashboard")
 //        btnAddUser.setOnClickListener {
 //            startActivity(Intent(this, AddUserActivity::class.java))
 //
@@ -33,14 +34,17 @@ class AdminMainActivity : AppCompatActivity() {
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
             R.id.dashboard -> {
+                this.setTitle("Dashboard")
                 fragment = DashboardFragment()
                 //return@OnNavigationItemSelectedListener true
             }
             R.id.prodcut -> {
+                this.setTitle("Add Product")
                 fragment = AddProductFragment()
                 //  return@OnNavigationItemSelectedListener true
             }
             R.id.addPerson -> {
+                this.setTitle("Add User")
                 fragment = AdduserFragment()
                 //return@OnNavigationItemSelectedListener true
             }
