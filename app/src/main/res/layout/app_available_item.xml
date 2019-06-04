@@ -1,96 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/card_background_style"
-        android:layout_margin="8dp">
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="8dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginRight="8dp"
+    android:background="@drawable/card_background_style">
 
 
     <LinearLayout
-            android:background="#F3B4B4B4"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_width="100dp"
-            android:layout_height="50dp"
-            android:gravity="bottom"
-            android:orientation="vertical"
-            android:rotation="45"
-            android:translationX="50dp"
-            android:translationY="-30dp"
-            >
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:background="@color/colorPrimary"
+        android:gravity="bottom"
+        android:orientation="vertical"
+        android:rotation="45"
+        android:translationX="50dp"
+        android:translationY="-30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
     </LinearLayout>
 
 
     <ImageView
-            android:layout_width="75dp"
-            android:layout_height="75dp"
-            android:src="@mipmap/ic_launcher_round"
-            android:id="@+id/img"
-            android:layout_marginTop="8dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="8dp"/>
+        android:id="@+id/img"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:src="@mipmap/ic_launcher_round"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="@+id/img"
+        app:layout_constraintStart_toEndOf="@+id/img"
+        app:layout_constraintTop_toTopOf="@+id/img">
+
+        <TextView
+            android:id="@+id/appName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintStart_toEndOf="@+id/img"
-            app:layout_constraintTop_toTopOf="@+id/img"
-            app:layout_constraintBottom_toBottomOf="@+id/img"
-            android:layout_marginStart="24dp">
+            android:text="Chemistry DTP"
+            android:textColor="#000"
+            android:textSize="18sp" />
 
         <TextView
-                android:text="Chemistry DTP"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/appName"
-                android:textColor="#000"
-                android:textSize="20sp"
-                />
-
-        <TextView
-                android:text="Chemistry DTP"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/appVersion"
-                android:textSize="16sp"
-                />
+            android:id="@+id/appVersion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Chemistry DTP"
+            android:textSize="15sp" />
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/img">
+
+        <Button
+            android:id="@+id/btnDownload"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:layout_editor_absoluteX="8dp"
-            android:id="@+id/linearLayout"
-            android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/img">
+            android:layout_margin="30dp"
+            android:layout_weight="1"
+            android:background="@drawable/btn_round"
+            android:elevation="4dp"
+            android:text="Download"
+            android:textAllCaps="false"
+            android:textColor="#000" />
 
         <Button
-                android:layout_margin="24dp"
-                android:layout_weight="1"
-                android:id="@+id/btnDownload"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/btn_round"
-                android:text="Download"
-                android:textColor="#000"
-                android:textAllCaps="false"/>
-
-        <Button
-                android:layout_margin="24dp"
-                android:layout_weight="1"
-                android:id="@+id/btnReport"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/btn_round"
-                android:text="Report"
-                android:textColor="#fff"
-                android:backgroundTint="@color/colorPrimary"
-                android:textAllCaps="false"/>
+            android:id="@+id/btnReport"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="30dp"
+            android:layout_weight="1"
+            android:background="@drawable/btn_round"
+            android:backgroundTint="@color/colorPrimary"
+            android:text="Report"
+            android:textAllCaps="false"
+            android:textColor="#fff" />
 
     </LinearLayout>
 
