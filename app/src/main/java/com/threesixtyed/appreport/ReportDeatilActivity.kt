@@ -5,6 +5,7 @@ import android.content.SharedPreferences
 import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.design.widget.Snackbar
 import android.support.v7.app.AlertDialog
 import android.util.Log
 import android.view.Menu
@@ -33,6 +34,8 @@ class ReportDeatilActivity : AppCompatActivity() {
     val vL = arrayOf("4.4", "4.4W", "5.0", "5.1", "6.0", "7.0", "7.1", "8.0", "8.1", "9")
 
 
+
+
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.save_menu, menu)
         return true
@@ -42,7 +45,11 @@ class ReportDeatilActivity : AppCompatActivity() {
         return when (item?.itemId) {
             R.id.item_save -> {
                 if (isChoice()) {
+
+
+                    confirmSendDialog()
                     saveReport()
+
                     Toast.makeText(this, "Success", Toast.LENGTH_LONG).show()
                     finish()
                 }
@@ -51,6 +58,10 @@ class ReportDeatilActivity : AppCompatActivity() {
             }
             else -> super.onOptionsItemSelected(item)
         }
+    }
+
+    private fun confirmSendDialog() {
+
     }
 
     private fun isChoice(): Boolean {
@@ -99,8 +110,7 @@ class ReportDeatilActivity : AppCompatActivity() {
             name
         )
 
-        databaseReference!!.child(app_name.toString()).child(databaseReference!!.push().key.toString())
-            .setValue(appReport)
+        databaseReference!!.child(app_name.toString()).child(key).setValue(appReport)
 
     }
 
