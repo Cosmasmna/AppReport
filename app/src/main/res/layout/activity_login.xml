@@ -11,6 +11,7 @@
             android:orientation="vertical"
             android:padding="16dp">
 
+
         <ImageView
                 android:layout_gravity="center_horizontal"
                 android:id="@+id/img"
@@ -19,10 +20,21 @@
                 android:src="@mipmap/ic_launcher_round"
                 android:layout_marginBottom="50dp"
                 />
+        <ProgressBar
+            android:visibility="gone"
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"/>
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
 
         <EditText
                 android:padding="16dp"
                 android:id="@+id/etName"
+            android:singleLine="true"
                 android:layout_margin="16dp"
                 android:background="@drawable/card_background_style"
                 android:layout_width="match_parent"
@@ -30,6 +42,7 @@
                 android:hint="Username"
                 android:drawablePadding="16dp"
                 />
+        </android.support.design.widget.TextInputLayout>
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -45,6 +58,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Password"
+            android:singleLine="true"
                 android:drawablePadding="16dp"
                 android:inputType="numberPassword"
                 />
@@ -60,6 +74,7 @@
                 android:textAllCaps="false"
                 android:background="@drawable/btn_round"
                 android:backgroundTint="@color/colorPrimary"/>
+
 
 
     </LinearLayout>

@@ -135,12 +135,21 @@ class ReportDeatilActivity : AppCompatActivity() {
             name
         )
 
-        databaseReference!!.child(app_name.toString()).child(key).setValue(appReport).addOnSuccessListener {
-            Toast.makeText(this,"Success",Toast.LENGTH_LONG).show()
-        }
+        databaseReference!!.child(app_name.toString()).child(key).setValue(appReport,object :DatabaseReference.CompletionListener{
+            override fun onComplete(p0: DatabaseError?, p1: DatabaseReference) {
+                if (p0!=null){
+                    Toast.makeText(this@ReportDeatilActivity,"Send Failed",Toast.LENGTH_SHORT).show()
+
+                }
+                else{
+                    Toast.makeText(this@ReportDeatilActivity,"Success",Toast.LENGTH_SHORT).show()
+
+                }
+            }
+        })
 
 
-        
+
 
 
     }
@@ -158,6 +167,8 @@ class ReportDeatilActivity : AppCompatActivity() {
 
 
         setSupportActionBar(activity_report_toolbar)
+        getSupportActionBar()!!.setDisplayHomeAsUpEnabled(true)
+
         // var intent=Intent()
         app_name = intent.getSerializableExtra("app_name")
         activity_report_toolbar.setTitle(app_name.toString())
@@ -208,7 +219,6 @@ class ReportDeatilActivity : AppCompatActivity() {
         val alertDialogBuilder: AlertDialog.Builder = AlertDialog.Builder(this, R.style.customizedAlert)
         alertDialogBuilder.setTitle(s)
         alertDialogBuilder.setItems(vL) { dialog, which ->
-            Toast.makeText(this, vL[which], Toast.LENGTH_LONG).show()
             tv_android_version!!.text = vL[which]
         }
         alertDialogBuilder.show()
