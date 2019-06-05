@@ -47,6 +47,8 @@ class ReportDeatilActivity : AppCompatActivity() {
                 if (isChoice()) {
 
 
+
+
                     confirmSendDialog()
 
                     //finish()

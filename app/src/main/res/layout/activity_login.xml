@@ -17,7 +17,7 @@
                 android:id="@+id/img"
                 android:layout_width="72dp"
                 android:layout_height="72dp"
-                android:src="@mipmap/ic_launcher_round"
+                android:src="@mipmap/ic_app_logo"
                 android:layout_marginBottom="50dp"
                 />
         <ProgressBar
