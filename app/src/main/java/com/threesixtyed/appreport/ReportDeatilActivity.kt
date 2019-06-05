@@ -171,10 +171,16 @@ class ReportDeatilActivity : AppCompatActivity() {
 
 
         setSupportActionBar(activity_report_toolbar)
+
         getSupportActionBar()!!.setDisplayHomeAsUpEnabled(true)
 
         // var intent=Intent()
         app_name = intent.getSerializableExtra("app_name")
+
+        //setSupportActionBar("title")
+       // var intent=Intent()
+        app_name=intent.getSerializableExtra("app_name")
+
         activity_report_toolbar.setTitle(app_name.toString())
 
         databaseReference!!.child(app_name.toString()).child("version")
