@@ -25,7 +25,7 @@ return  reportViewList.size
         p0.appVersionName.text=reportViewList.get(p1).app_version
         p0.appReportDetail.text=reportViewList.get(p1).report_detail
         p0.reportUserName.text=reportViewList.get(p1).user_name
-        p0.reportPhoneModelVersion.text=reportViewList.get(p1).phone_model+""+reportViewList.get(p1).android_version
+        p0.reportPhoneModelVersion.text=reportViewList.get(p1).phone_model+"("+reportViewList.get(p1).android_version+")"
         p0.reportDetailDate.text=reportViewList.get(p1).report_date
     }
 }
