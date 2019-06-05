@@ -3,10 +3,13 @@ package com.threesixtyed.appreport.fragment
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v7.app.AlertDialog
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.Toast
+import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 
@@ -37,20 +40,31 @@ class AdduserFragment : Fragment() {
         databaseReference = FirebaseDatabase.getInstance().getReference("user")
 
 
-//        btnAdd.setOnClickListener {
-//            var name: String = et_add_user_name.text.toString()
-//            var password: String = et_add_password.text.toString()
-//            var user = User(name, password)
-//            databaseReference!!.push().key
-//            databaseReference!!.child(databaseReference!!.push().key.toString()).setValue(user)
-//            Toast.makeText(
-//                context,
-//                et_add_user_name.text.toString() + "" + et_add_password.text.toString(),
-//                Toast.LENGTH_LONG
-//            ).show()
-//
-//
-//        }
+        var btn=view.findViewById<Button>(R.id.btnAddUser)
+        btn.setOnClickListener {
+            btn.isEnabled=false
+            var name: String = et_add_user_name.text.toString()
+            var password: String = et_add_password.text.toString()
+            var user = User(name, password)
+            databaseReference!!.push().key
+            databaseReference!!.child(databaseReference!!.push().key.toString()).setValue(user,object :DatabaseReference.CompletionListener{
+                override fun onComplete(p0: DatabaseError?, p1: DatabaseReference) {
+                    if (p0!=null){
+                        Toast.makeText(context,"Try again",Toast.LENGTH_SHORT).show()
+                        btn.isEnabled=true
+
+                    }
+                    else{
+                        val alertDialogBuilder: AlertDialog.Builder = AlertDialog.Builder(view.context)
+                        alertDialogBuilder.setTitle("User Added")
+                        alertDialogBuilder.setMessage("User "+ et_add_user_name.text.toString()+" Added")
+                        alertDialogBuilder.show()
+                        btn.isEnabled=true
+
+                    }
+                }
+            })
+        }
 
 
         return view

@@ -23,16 +23,22 @@ class StartActivity : AppCompatActivity() {
 
                 if (sharedPreferences.contains("name")){
                     if (sharedPreferences.getString("name","").equals("admin")){
-                        startActivity(Intent(this@StartActivity,AdminMainActivity::class.java))
+                        var intent=Intent(this@StartActivity,AdminMainActivity::class.java)
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                        startActivity(intent)
                         finish()
 
                     }else{
-                        startActivity(Intent(this@StartActivity,MainActivity::class.java))
+                        var intent=Intent(this@StartActivity,MainActivity::class.java)
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                        startActivity(intent)
                         finish()
                     }
 
                 }else {
-                    startActivity(Intent(this@StartActivity, LoginActivity::class.java))
+                    var intent=Intent(this@StartActivity,LoginActivity::class.java)
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                    startActivity(intent)
                     finish()
                 }
 

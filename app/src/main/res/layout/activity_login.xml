@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout
             android:layout_width="match_parent"
@@ -11,6 +10,7 @@
             android:layout_centerInParent="true"
             android:orientation="vertical"
             android:padding="16dp">
+
 
         <ImageView
                 android:layout_gravity="center_horizontal"
@@ -20,32 +20,52 @@
                 android:src="@mipmap/ic_launcher_round"
                 android:layout_marginBottom="50dp"
                 />
+        <ProgressBar
+            android:visibility="gone"
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"/>
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:focusableInTouchMode="true">
 
         <EditText
                 android:padding="16dp"
                 android:id="@+id/etName"
+            android:singleLine="true"
                 android:layout_margin="16dp"
                 android:background="@drawable/card_background_style"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/ic_person"
                 android:hint="Username"
                 android:drawablePadding="16dp"
                 />
+        </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:passwordToggleEnabled="true"
+            >
 
-        <EditText
+        <android.support.design.widget.TextInputEditText
                 android:padding="16dp"
-                android:id="@+id/etPassword"
+            app:passwordToggleDrawable="@drawable/password_icon_selector"
+
+            android:id="@+id/etPassword"
                 android:layout_margin="16dp"
                 android:background="@drawable/card_background_style"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/ic_lock"
                 android:hint="Password"
+            android:singleLine="true"
                 android:drawablePadding="16dp"
                 android:inputType="numberPassword"
                 />
 
+        </android.support.design.widget.TextInputLayout>
         <Button
                 android:textColor="#fff"
                 android:id="@+id/btnLogin"
@@ -56,6 +76,7 @@
                 android:textAllCaps="false"
                 android:background="@drawable/btn_round"
                 android:backgroundTint="@color/colorPrimary"/>
+
 
 
     </LinearLayout>

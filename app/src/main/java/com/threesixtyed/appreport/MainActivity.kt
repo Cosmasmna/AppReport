@@ -1,8 +1,7 @@
 package com.threesixtyed.appreport
 
-import android.content.Context
-import android.content.Intent
-import android.content.SharedPreferences
+import android.content.*
+import android.net.ConnectivityManager
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
@@ -11,6 +10,10 @@ import android.widget.Button
 import com.google.firebase.database.FirebaseDatabase
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
+import android.view.animation.LayoutAnimationController
 import android.widget.Toast
 import com.google.firebase.database.*
 import com.threesixtyed.appreport.adapter.AppAdapter
@@ -25,6 +28,33 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var sharePreferences: SharedPreferences
 
+    private var brocast: BroadcastReceiver =object:BroadcastReceiver(){
+        override fun onReceive(context: Context?, intent: Intent) {
+            val notConnected=intent.getBooleanExtra(ConnectivityManager.EXTRA_NO_CONNECTIVITY,false)
+            if (notConnected){
+               // Toast.makeText(applicationContext,"not Connected",Toast.LENGTH_LONG).show()
+
+                recyclerView.visibility=View.GONE
+                no_connection.visibility=View.VISIBLE
+            }
+            else {
+              //  Toast.makeText(applicationContext, "Connected", Toast.LENGTH_LONG).show()
+                no_connection.visibility=View.GONE
+                recyclerView.visibility=View.VISIBLE
+                bindData()
+            }
+        }
+
+    }
+    override fun onStart() {
+        super.onStart()
+        registerReceiver(brocast, IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION))
+
+    }
+    override fun onStop() {
+        super.onStop()
+        unregisterReceiver(brocast)
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -33,6 +63,9 @@ class MainActivity : AppCompatActivity() {
         databaseReference=FirebaseDatabase.getInstance().getReference("app")
 
         setSupportActionBar(toolbar)
+
+
+
         bindData()
     }
 
@@ -88,10 +121,16 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun bindAdapter(app_list: ArrayList<AppInfo>) {
+
+
+       // var layoutAnimationController=AnimationUtils.loadLayoutAnimation(applicationContext,android.R.anim.slide_out_right)
+        //recyclerView.layoutAnimation=layoutAnimationController
         recyclerView.layoutManager=LinearLayoutManager(this)
         var adapter=AppAdapter(app_list,applicationContext)
         recyclerView.adapter=adapter
-        adapter.notifyDataSetChanged()
+
+        (recyclerView.adapter as AppAdapter).notifyDataSetChanged()
+        //recyclerView.scheduleLayoutAnimation()
 
     }
 

@@ -6,6 +6,7 @@
     android:fillViewport="true">
 
     <android.support.constraint.ConstraintLayout
+        android:id="@+id/layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:focusable="true"
@@ -27,11 +28,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:fitsSystemWindows="true"
-                app:navigationIcon="@drawable/ic_bug_report"
                 app:popupTheme="@style/AppTheme.PopupOverlay"
                 app:subtitle="Report"
                 app:title="Chemistry DTP">
 
+                <!--<ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_back_arrow"/>
+-->
             </android.support.v7.widget.Toolbar>
 
         </android.support.design.widget.AppBarLayout>
@@ -84,6 +89,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginBottom="8dp"
                 android:hint="V 1.4 "
+                android:textColor="#000"
                 android:textSize="14dp" />
 
         </LinearLayout>
@@ -136,6 +142,8 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginBottom="8dp"
                 android:hint="8.1"
+                android:textColor="#000"
+
                 android:textSize="14dp" />
 
         </LinearLayout>
@@ -175,7 +183,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginBottom="8dp"
-                android:hint="Samung"
+                android:hint="Samsung"
+                android:textColor="#000"
+
                 android:textSize="14dp" />
 
         </LinearLayout>
@@ -187,7 +197,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="24dp"
-            android:text="Reprot type"
+            android:text="Report type"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/phone_model_layout" />

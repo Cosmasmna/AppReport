@@ -10,6 +10,7 @@
         android:layout_height="wrap_content"
         android:clipToPadding="true"
         android:paddingTop="16dp"
+        android:layoutAnimation="@anim/anim_layout"
         android:paddingBottom="50dp">
 
     </android.support.v7.widget.RecyclerView>

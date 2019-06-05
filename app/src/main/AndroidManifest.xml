@@ -4,6 +4,7 @@
     package="com.threesixtyed.appreport">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
     <application
         android:allowBackup="true"
@@ -27,6 +28,7 @@
             </intent-filter>
         </activity>
         <activity
+            android:parentActivityName=".MainActivity"
             android:name=".ReportDeatilActivity"
             android:theme="@style/NoActionBar" />
         <activity
