@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
+import android.widget.Toast
 import com.google.firebase.database.*
 import com.threesixtyed.appreport.adapter.AppReportAdapter
 import com.threesixtyed.appreport.model.AppReport
@@ -39,6 +40,7 @@ class ReportViewActivity:AppCompatActivity() {
                 Log.i("DataSnap",p0.key)
 
 
+
                 if (p0.exists()){
 
                     for (data in p0.children){
@@ -55,11 +57,9 @@ class ReportViewActivity:AppCompatActivity() {
                     val adapter=AppReportAdapter(this@ReportViewActivity,reportList)
                     detailListRecycler.adapter=adapter
 
+                }else{
+                 Toast.makeText(this@ReportViewActivity,"No detail",Toast.LENGTH_SHORT).show()
                 }
-
-
-
-
             }
         })
         }
