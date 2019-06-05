@@ -1,37 +1,40 @@
 package com.threesixtyed.appreport.adapter
 
 import android.content.Context
-import android.os.Parcel
-import android.os.Parcelable
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Adapter
 import com.threesixtyed.appreport.R
 import com.threesixtyed.appreport.model.AppReport
-import kotlinx.android.synthetic.main.report_deati_rowl.view.*
+import kotlinx.android.synthetic.main.report_view_list.view.*
 
-class AppReportAdapter (val context:Context,val reportList:ArrayList<AppReport>):RecyclerView.Adapter<MyHolder>() {
+class AppReportAdapter (val context:Context,val reportViewList:ArrayList<AppReport>): RecyclerView.Adapter<AppReportHolder>() {
+    override fun onCreateViewHolder(p0: ViewGroup, p1: Int): AppReportHolder {
 
-    override fun onCreateViewHolder(p0: ViewGroup, p1: Int):MyHolder {
-        return MyHolder(LayoutInflater.from(context).inflate(R.layout.report_deati_rowl, p0, false))
-
+        return AppReportHolder(LayoutInflater.from(context).inflate(R.layout.report_view_list, p0, false))
     }
-
 
     override fun getItemCount(): Int {
-        return reportList.size
+return  reportViewList.size
     }
 
-    override fun onBindViewHolder(p0: MyHolder, p1: Int) {
-        p0?.app_name?.text= reportList.get(p1).android_version
-        p0?.app_version?.text= reportList.get(p1).app_version
-    }
+    override fun onBindViewHolder(p0: AppReportHolder, p1: Int) {
 
+        p0.reportType.text=reportViewList.get(p1).report_type
+        p0.appVersionName.text=reportViewList.get(p1).app_version
+        p0.appReportDetail.text=reportViewList.get(p1).report_detail
+        p0.reportUserName.text=reportViewList.get(p1).user_name
+        p0.reportPhoneModelVersion.text=reportViewList.get(p1).phone_model+""+reportViewList.get(p1).android_version
+        p0.reportDetailDate.text=reportViewList.get(p1).report_date
+    }
 }
 
-class MyHolder(view: View): RecyclerView.ViewHolder(view) {
-    val app_name=view.app_name
-    val app_version=view.app_version
+class AppReportHolder (view: View): RecyclerView.ViewHolder(view) {
+   val reportType=view.app_report_type
+    val appVersionName=view.app_version_name
+    val appReportDetail=view.app_report_detail
+    val reportUserName=view.user_name
+    val reportPhoneModelVersion=view.ph_model_version
+    val reportDetailDate=view.report_detail_date
 }

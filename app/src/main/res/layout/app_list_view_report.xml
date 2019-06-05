@@ -2,10 +2,10 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:layout_width="match_parent" android:layout_height="wrap_content">
 
     <TextView
-        android:id="@+id/app_view_name"
+        android:id="@+id/app_name_report_list"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -21,7 +21,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/app_view_version"
+        android:id="@+id/app_version_report_list"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
@@ -48,9 +48,10 @@
         android:background="@drawable/btn_round"
         android:backgroundTint="@color/colorPrimary"
         android:text="View"
+        android:textColor="#fff"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.91"
-        app:layout_constraintStart_toEndOf="@+id/app_view_version"
-        app:layout_constraintTop_toBottomOf="@+id/app_view_name" />
+        app:layout_constraintStart_toEndOf="@+id/app_version_report_list"
+        app:layout_constraintTop_toBottomOf="@+id/app_name_report_list" />
 
 </android.support.constraint.ConstraintLayout>
