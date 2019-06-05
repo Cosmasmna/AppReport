@@ -14,32 +14,31 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <!--<android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            app:popupTheme="@style/AppTheme.PopupOverlay">
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:src="@drawable/app_logo" />
-
-        </android.support.v7.widget.Toolbar>-->
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:fitsSystemWindows="true"
-            app:navigationIcon="@drawable/ic_bug_report"
             app:popupTheme="@style/AppTheme.PopupOverlay"
             app:subtitle="Report"
             app:title="Chemistry DTP">
 
+
         </android.support.v7.widget.Toolbar>
 
     </android.support.design.widget.AppBarLayout>
+    <android.support.v7.widget.RecyclerView
 
+        android:id="@+id/detailListRecycler"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/uni_info_action_bar"
+        >
+
+    </android.support.v7.widget.RecyclerView>
+
+<!--
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -69,5 +68,6 @@
                 layout="@layout/report_view_list" />
         </LinearLayout>
     </ScrollView>
+-->
 
 </android.support.constraint.ConstraintLayout>

@@ -144,8 +144,10 @@ class ReportDeatilActivity : AppCompatActivity() {
 
                 }
                 else{
+
                     Toast.makeText(this@ReportDeatilActivity,"Success",Toast.LENGTH_SHORT).show()
 
+                    finish()
                 }
             }
         })

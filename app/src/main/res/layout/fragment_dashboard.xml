@@ -5,18 +5,14 @@
     android:layout_height="match_parent"
     tools:context=".fragment.DashboardFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <!--<TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />-->
-   <!-- <android.support.v7.widget.RecyclerView
+    <android.support.v7.widget.RecyclerView
         android:id="@+id/application_list_recycle"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    </android.support.v7.widget.RecyclerView>-->
+    </android.support.v7.widget.RecyclerView>
 
+<!--
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -33,5 +29,6 @@
             <include layout="@layout/app_list_view_report"/>
         </LinearLayout>
     </ScrollView>
+-->
 
 </FrameLayout>

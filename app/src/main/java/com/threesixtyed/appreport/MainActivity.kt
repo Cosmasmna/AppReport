@@ -72,12 +72,6 @@ class MainActivity : AppCompatActivity() {
     private fun bindData() {
         var app_list=ArrayList<AppInfo>()
 
-/*
-
-        btnReport = findViewById(R.id.btnReport)
-        btnReport.setOnClickListener() {
-            startActivity(Intent(this, ReportDeatilActivity::class.java))
-        }*/
         databaseReference!!.addValueEventListener(object :ValueEventListener{
 
 
@@ -121,15 +115,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun bindAdapter(app_list: ArrayList<AppInfo>) {
-
-
-       // var layoutAnimationController=AnimationUtils.loadLayoutAnimation(applicationContext,android.R.anim.slide_out_right)
-        //recyclerView.layoutAnimation=layoutAnimationController
         recyclerView.layoutManager=LinearLayoutManager(this)
         var adapter=AppAdapter(app_list,applicationContext)
         recyclerView.adapter=adapter
-
-        (recyclerView.adapter as AppAdapter).notifyDataSetChanged()
+        adapter.notifyDataSetChanged()
         //recyclerView.scheduleLayoutAnimation()
 
     }

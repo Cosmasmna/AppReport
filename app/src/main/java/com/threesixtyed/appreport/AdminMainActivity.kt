@@ -24,10 +24,6 @@ class AdminMainActivity : AppCompatActivity() {
 
     var fragment: Fragment? = null
 
-
-
-
-
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.main_menu, menu)
         return true
@@ -52,10 +48,7 @@ class AdminMainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_admin_main)
         setTitle("Dashboard")
-//        btnAddUser.setOnClickListener {
-//            startActivity(Intent(this, AddUserActivity::class.java))
-//
-//        }
+
         sharePreferences=getSharedPreferences("mypref", Context.MODE_PRIVATE)
       //  databaseReference= FirebaseDatabase.getInstance().getReference("app")
 
@@ -63,6 +56,8 @@ class AdminMainActivity : AppCompatActivity() {
         transition.replace(R.id.container, DashboardFragment()).commit()
         transition.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
+
+
     }
 
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
