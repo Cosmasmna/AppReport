@@ -17,7 +17,7 @@
         android:orientation="vertical"
         android:rotation="45"
         android:translationX="50dp"
-        android:translationY="-30dp"
+        android:translationY="-45dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -54,57 +54,70 @@
             android:textSize="18sp" />
 
         <TextView
+            android:id="@+id/appRelease"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Updated on(12/5/2019)"
+            android:textColor="#868686"
+            android:textSize="15sp" />
+
+        <TextView
             android:id="@+id/appVersion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Chemistry DTP"
+            android:textColor="#868686"
             android:textSize="15sp" />
+
+
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
         app:layout_constraintTop_toBottomOf="@+id/img">
 
-        <ImageButton
+        <Button
             android:id="@+id/btnPlaystore"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="30dp"
             android:layout_weight="1"
-            android:background="@drawable/btn_round"
+            android:background="@drawable/btn_rectangle"
+            android:drawableLeft="@drawable/ic_playstore"
             android:elevation="1dp"
             android:padding="8dp"
-            android:src="@drawable/ic_playstore"
+            android:text="Playstore"
             android:textAllCaps="false"
             android:textColor="#000" />
 
-        <ImageButton
+        <Button
             android:id="@+id/btnDownload"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="30dp"
             android:layout_weight="1"
-            android:background="@drawable/btn_round"
+            android:background="@drawable/btn_rectangle"
+            android:drawableLeft="@drawable/ic_download"
             android:elevation="1dp"
             android:padding="8dp"
-            android:src="@drawable/ic_download"
+            android:text="Download"
             android:textAllCaps="false"
             android:textColor="#000" />
 
-        <ImageButton
+        <Button
             android:id="@+id/btnReport"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="30dp"
+
             android:layout_weight="1"
-            android:background="@drawable/btn_round"
+            android:background="@drawable/btn_rectangle"
+            android:drawableLeft="@drawable/ic_pencil"
             android:elevation="1dp"
             android:padding="8dp"
             android:src="@drawable/ic_pencil"
-            android:textAllCaps="false"
-            android:textColor="#fff" />
+            android:text="Report"
+            android:textAllCaps="false" />
 
     </LinearLayout>
 

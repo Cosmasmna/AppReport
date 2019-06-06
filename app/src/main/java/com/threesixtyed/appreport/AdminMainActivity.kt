@@ -53,7 +53,7 @@ class AdminMainActivity : AppCompatActivity() {
 
         val transition = supportFragmentManager.beginTransaction()
         transition.replace(R.id.container, DashboardFragment()).commit()
-        transition.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+        transition.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
 
 
