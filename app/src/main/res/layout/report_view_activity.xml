@@ -38,36 +38,5 @@
 
     </android.support.v7.widget.RecyclerView>
 
-<!--
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/uni_info_action_bar"
-       >
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <include layout="@layout/report_view_list" />
-
-            <include layout="@layout/report_view_list" />
-
-            <include layout="@layout/report_view_list" />
-
-            <include layout="@layout/report_view_list" />
-
-            <include layout="@layout/report_view_list" />
-
-            <include layout="@layout/report_view_list" />
-
-            <include
-                android:id="@+id/include"
-                layout="@layout/report_view_list" />
-        </LinearLayout>
-    </ScrollView>
--->
 
 </android.support.constraint.ConstraintLayout>

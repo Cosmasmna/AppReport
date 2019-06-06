@@ -9,6 +9,7 @@ import com.threesixtyed.appreport.R
 import com.threesixtyed.appreport.model.AppReport
 import kotlinx.android.synthetic.main.report_view_list.view.*
 
+
 class AppReportAdapter (val context:Context,val reportViewList:ArrayList<AppReport>): RecyclerView.Adapter<AppReportHolder>() {
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): AppReportHolder {
 
@@ -22,11 +23,12 @@ return  reportViewList.size
     override fun onBindViewHolder(p0: AppReportHolder, p1: Int) {
 
         p0.reportType.text=reportViewList.get(p1).report_type
-        p0.appVersionName.text=reportViewList.get(p1).app_version
-        p0.appReportDetail.text=reportViewList.get(p1).report_detail
+        p0.appVersionName.text="Version: "+reportViewList.get(p1).app_version
+        //p0.appReportDetail.text=reportViewList.get(p1).report_detail
+        p0.appReportDetail.text="Application Details Application Details Application Details Application Details Application Details Application Details Application Details Application Details Application Details Application Details Application Details Application Details Application Details Application Details Application Details Application Details Application Details Application Details Application Details Application Details Application Details Application Details Application Details Application Details Application Details Application Details Application Details Application Details Application Details Application Details"
         p0.reportUserName.text=reportViewList.get(p1).user_name
         p0.reportPhoneModelVersion.text=reportViewList.get(p1).phone_model+"("+reportViewList.get(p1).android_version+")"
-        p0.reportDetailDate.text=reportViewList.get(p1).report_date
+        p0.reportDetailDate.text="Date: "+reportViewList.get(p1).report_date
     }
 }
 

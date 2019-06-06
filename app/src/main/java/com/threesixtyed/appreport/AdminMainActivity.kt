@@ -25,7 +25,7 @@ class AdminMainActivity : AppCompatActivity() {
     var fragment: Fragment? = null
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.main_menu, menu)
+        menuInflater.inflate(R.menu.admin_main_menu, menu)
         return true
     }
 

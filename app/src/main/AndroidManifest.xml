@@ -41,6 +41,7 @@
             android:theme="@style/NoActionBar" />
         <activity
             android:name=".ReportViewActivity"
+            android:parentActivityName=".AdminMainActivity"
             android:theme="@style/NoActionBar"/>
     </application>
 
