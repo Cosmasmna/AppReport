@@ -20,6 +20,7 @@ import kotlinx.android.synthetic.main.activity_admin_main.*
 
 class AdminMainActivity : AppCompatActivity() {
 
+
     lateinit var sharePreferences: SharedPreferences
 
     var fragment: Fragment? = null
@@ -43,6 +44,7 @@ class AdminMainActivity : AppCompatActivity() {
             else -> super.onOptionsItemSelected(item)
         }
     }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
