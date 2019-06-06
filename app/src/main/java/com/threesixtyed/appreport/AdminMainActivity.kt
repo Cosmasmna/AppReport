@@ -32,7 +32,6 @@ class AdminMainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         return when (item?.itemId) {
             R.id.logout -> {
-
                 startActivity(Intent(this, LoginActivity::class.java))
 
                 sharePreferences.edit().clear().commit()

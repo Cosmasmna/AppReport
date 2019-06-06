@@ -31,8 +31,6 @@ class ReportDeatilActivity : AppCompatActivity() {
     val vL = arrayOf("4.4", "4.4W", "5.0", "5.1", "6.0", "7.0", "7.1", "8.0", "8.1", "9")
 
 
-
-
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.save_menu, menu)
         return true
@@ -40,14 +38,16 @@ class ReportDeatilActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         return when (item?.itemId) {
+
+            android.R.id.home -> {
+                finish()
+                true
+            }
             R.id.item_save -> {
 
-                    //--alert dialog for confirmation
+                //--alert dialog for confirmation
 
                 if (isChoice()) {
-
-
-
 
                     confirmSendDialog()
 
@@ -63,21 +63,21 @@ class ReportDeatilActivity : AppCompatActivity() {
     private fun confirmSendDialog() {
         val alertDialogBuilder: AlertDialog.Builder = AlertDialog.Builder(this, R.style.customizedAlert)
 
-        var alertDialog=alertDialogBuilder.create()
+        var alertDialog = alertDialogBuilder.create()
 
         val dialogView = LayoutInflater.from(this).inflate(R.layout.comfirm_custom_dialog, null)
-        var btn=dialogView.findViewById<Button>(R.id.btnConfirm)
-        var txtAppVersion=dialogView.findViewById<TextView>(R.id.txtAppVersion)
-        var txtPhoneModel=dialogView.findViewById<TextView>(R.id.txtPhoneModel)
-        var txtAndroidVersion=dialogView.findViewById<TextView>(R.id.txtAndroidVersion)
-        var txtReportType=dialogView.findViewById<TextView>(R.id.txtReportType)
-        var txtReportDetail=dialogView.findViewById<TextView>(R.id.txtReportDetail)
-        var btnCancel=dialogView.findViewById<TextView>(R.id.btnCancel)
-        txtAppVersion.text=tv_app_version.text.toString()
-        txtAndroidVersion.text=tv_android_version.text.toString()
-        txtPhoneModel.text=tv_phone_model.text.toString()
-        txtReportDetail.text=et_reportdetail.text.toString()
-        txtReportType.text=selectedRadio.text.toString()
+        var btn = dialogView.findViewById<Button>(R.id.btnConfirm)
+        var txtAppVersion = dialogView.findViewById<TextView>(R.id.txtAppVersion)
+        var txtPhoneModel = dialogView.findViewById<TextView>(R.id.txtPhoneModel)
+        var txtAndroidVersion = dialogView.findViewById<TextView>(R.id.txtAndroidVersion)
+        var txtReportType = dialogView.findViewById<TextView>(R.id.txtReportType)
+        var txtReportDetail = dialogView.findViewById<TextView>(R.id.txtReportDetail)
+        var btnCancel = dialogView.findViewById<TextView>(R.id.btnCancel)
+        txtAppVersion.text = tv_app_version.text.toString()
+        txtAndroidVersion.text = tv_android_version.text.toString()
+        txtPhoneModel.text = tv_phone_model.text.toString()
+        txtReportDetail.text = et_reportdetail.text.toString()
+        txtReportType.text = selectedRadio.text.toString()
         btnCancel.setOnClickListener {
             alertDialog.cancel()
 
@@ -137,35 +137,32 @@ class ReportDeatilActivity : AppCompatActivity() {
             name
         )
 
-        databaseReference!!.child(app_name.toString()).child(key).setValue(appReport,object :DatabaseReference.CompletionListener{
-            override fun onComplete(p0: DatabaseError?, p1: DatabaseReference) {
-                if (p0!=null){
-                    Toast.makeText(this@ReportDeatilActivity,"Send Failed",Toast.LENGTH_SHORT).show()
+        databaseReference!!.child(app_name.toString()).child(key)
+            .setValue(appReport, object : DatabaseReference.CompletionListener {
+                override fun onComplete(p0: DatabaseError?, p1: DatabaseReference) {
+                    if (p0 != null) {
+                        Toast.makeText(this@ReportDeatilActivity, "Send Failed", Toast.LENGTH_SHORT).show()
 
+                    } else {
+
+                        Toast.makeText(this@ReportDeatilActivity, "Success", Toast.LENGTH_SHORT).show()
+
+                        finish()
+                    }
                 }
-                else{
-
-                    Toast.makeText(this@ReportDeatilActivity,"Success",Toast.LENGTH_SHORT).show()
-
-                    finish()
-                }
-            }
-        })
-
-
-
+            })
 
 
     }
 
 
-    lateinit var selectedRadio:RadioButton
+    lateinit var selectedRadio: RadioButton
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_report_detail)
 
         var selected = radioGroup.checkedRadioButtonId
-        selectedRadio= findViewById(selected)
+        selectedRadio = findViewById(selected)
         databaseReference = FirebaseDatabase.getInstance().getReference("app")
         sharePreferences = getSharedPreferences("mypref", Context.MODE_PRIVATE)
 
@@ -178,8 +175,8 @@ class ReportDeatilActivity : AppCompatActivity() {
         app_name = intent.getSerializableExtra("app_name")
 
         //setSupportActionBar("title")
-       // var intent=Intent()
-        app_name=intent.getSerializableExtra("app_name")
+        // var intent=Intent()
+        app_name = intent.getSerializableExtra("app_name")
 
         activity_report_toolbar.setTitle(app_name.toString())
 
@@ -236,7 +233,7 @@ class ReportDeatilActivity : AppCompatActivity() {
 
     private fun select_phone_model() {
         val et_ph_model = EditText(this)
-        et_ph_model.hint="Enter phone model"
+        et_ph_model.hint = "Enter phone model"
         val dialog: AlertDialog = AlertDialog.Builder(this)
             .setTitle("Phone Model")
             .setView(et_ph_model)
