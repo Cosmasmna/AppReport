@@ -28,6 +28,7 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var sharePreferences: SharedPreferences
 
+
     private var brocast: BroadcastReceiver =object:BroadcastReceiver(){
         override fun onReceive(context: Context?, intent: Intent) {
             val notConnected=intent.getBooleanExtra(ConnectivityManager.EXTRA_NO_CONNECTIVITY,false)
