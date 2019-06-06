@@ -88,7 +88,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginBottom="8dp"
-                android:hint="V 1.4 "
+                android:hint="V xx "
                 android:textColor="#000"
                 android:textSize="14dp" />
 
@@ -141,7 +141,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginBottom="8dp"
-                android:hint="8.1"
+                android:hint="xxx"
                 android:textColor="#000"
 
                 android:textSize="14dp" />
@@ -182,7 +182,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginBottom="8dp"
-                android:hint="Samsung"
+                android:hint="xxxxxxxx"
                 android:textColor="#000"
 
                 android:textSize="14dp" />

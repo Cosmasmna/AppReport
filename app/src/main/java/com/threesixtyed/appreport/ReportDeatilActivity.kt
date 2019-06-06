@@ -28,7 +28,7 @@ class ReportDeatilActivity : AppCompatActivity() {
     lateinit var app_name: Serializable
     val app_version_list = ArrayList<String>()
     private var databaseReference: DatabaseReference? = null
-    val vL = arrayOf("4.4", "4.4W", "5.0", "5.1", "6.0", "7.0", "7.1", "8.0", "8.1", "9")
+    val vL = arrayOf("4.4", "5.0", "5.1", "6.0", "7.0", "7.1", "8.0", "8.1", "9")
 
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

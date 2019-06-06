@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginLeft="8dp"
-    android:layout_marginTop="16dp"
+    android:layout_marginTop="12dp"
     android:layout_marginRight="8dp"
     android:background="@drawable/card_background_style">
 
@@ -54,7 +54,7 @@
             android:textSize="18sp" />
 
         <TextView
-            android:id="@+id/appRelease"
+            android:id="@+id/appUpdateTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Updated on(12/5/2019)"
@@ -115,8 +115,8 @@
             android:drawableLeft="@drawable/ic_pencil"
             android:elevation="1dp"
             android:padding="8dp"
-            android:src="@drawable/ic_pencil"
             android:text="Report"
+            android:textColor="#000"
             android:textAllCaps="false" />
 
     </LinearLayout>

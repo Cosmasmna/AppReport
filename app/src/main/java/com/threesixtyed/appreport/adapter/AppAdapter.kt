@@ -22,6 +22,7 @@ class AppAdapter(val items : ArrayList<AppInfo>, val context: Context) : Recycle
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder?.appname?.text= items.get(position).app_name
         holder?.appversion?.text= items.get(position).latest_vname
+        holder.appUpdateTime.text="Updated on "+items.get(position).date_time
 
         holder.btnReport.setOnClickListener {
             val i=Intent(context,ReportDeatilActivity::class.java)
@@ -57,6 +58,7 @@ class AppAdapter(val items : ArrayList<AppInfo>, val context: Context) : Recycle
 class ViewHolder (view: View) : RecyclerView.ViewHolder(view) {
     val appname = view.appName
     val appversion=view.appVersion
+    val appUpdateTime=view.appUpdateTime
     val btnDownload=view.btnDownload
     val btnReport=view.btnReport
     val img=view.img

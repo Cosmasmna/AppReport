@@ -67,6 +67,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun bindData() {
+
+        loadingProgress.visibility=View.VISIBLE
+
+
         var app_list=ArrayList<AppInfo>()
 
         databaseReference!!.addValueEventListener(object :ValueEventListener{
@@ -119,6 +123,7 @@ class MainActivity : AppCompatActivity() {
         var adapter=AppAdapter(app_list,applicationContext)
         recyclerView.adapter=adapter
         adapter.notifyDataSetChanged()
+        loadingProgress.visibility=View.GONE
         //recyclerView.scheduleLayoutAnimation()
 
     }
