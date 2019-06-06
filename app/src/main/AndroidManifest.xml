@@ -30,7 +30,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:parentActivityName=".MainActivity"
             android:name=".ReportDeatilActivity"
             android:theme="@style/NoActionBar" />
         <activity
