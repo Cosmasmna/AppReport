@@ -33,13 +33,18 @@ class AppAdapter(val items : ArrayList<AppInfo>, val context: Context) : Recycle
         Glide.with(context).load(items.get(position).img_url)
             .transition(DrawableTransitionOptions.withCrossFade())
             .into(holder.img)
-        var uri=Uri.parse(items.get(position).latest_vlink)
-        holder.btnDownload.setOnClickListener {
-            val intent=Intent(Intent.ACTION_VIEW,uri)
+        var playstoreLink=Uri.parse(items.get(position).latest_vlink)
+        var directLink=Uri.parse(items.get(position).direct_link)
+        holder.btnPlaystore.setOnClickListener {
+            val intent=Intent(Intent.ACTION_VIEW,playstoreLink)
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
             context.startActivity(intent)
 
-
+        }
+        holder.btnDownload.setOnClickListener {
+            val intent=Intent(Intent.ACTION_VIEW,directLink)
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            context.startActivity(intent)
         }
     }
 
@@ -55,5 +60,5 @@ class ViewHolder (view: View) : RecyclerView.ViewHolder(view) {
     val btnDownload=view.btnDownload
     val btnReport=view.btnReport
     val img=view.img
-
+    val  btnPlaystore=view.btnPlaystore
 }

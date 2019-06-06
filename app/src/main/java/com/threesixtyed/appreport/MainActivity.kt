@@ -6,14 +6,10 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
-import android.widget.Button
 import com.google.firebase.database.FirebaseDatabase
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.view.animation.Animation
-import android.view.animation.AnimationUtils
-import android.view.animation.LayoutAnimationController
 import android.widget.Toast
 import com.google.firebase.database.*
 import com.threesixtyed.appreport.adapter.AppAdapter
@@ -93,8 +89,11 @@ class MainActivity : AppCompatActivity() {
                         var img_url=h.child("img_url").value.toString()
                         var latest_vname=h.child("latest_version").child("v_name").value.toString()
                         var latest_vlink=h.child("latest_version").child("link").value.toString()
+                        var direct_link=h.child("latest_version").child("direct_link").value.toString()
+                        var date_time=h.child("latest_version").child("date_time").value.toString()
 
-                        var appInfo=AppInfo(app_name,img_url,latest_vname,latest_vlink)
+
+                        var appInfo=AppInfo(app_name,img_url,latest_vname,latest_vlink,direct_link,date_time)
 
                         app_list.add(appInfo)
 

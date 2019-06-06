@@ -47,7 +47,10 @@ class DashboardFragment : Fragment() {
                         var latest_vname=h.child("latest_version").child("v_name").value.toString()
                         var latest_vlink=h.child("latest_version").child("link").value.toString()
 
-                        var appInfo=AppInfo(app_name,img_url,latest_vname,latest_vlink)
+                        var direct_link=h.child("latest_version").child("direct_link").value.toString()
+                        var date_time=h.child("latest_version").child("date_time").value.toString()
+
+                        var appInfo=AppInfo(app_name, img_url, latest_vname, latest_vlink, direct_link, date_time)
 
                         app_list.add(appInfo)
 
