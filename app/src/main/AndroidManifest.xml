@@ -4,9 +4,9 @@
     package="com.threesixtyed.appreport">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -16,10 +16,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-
-        <activity android:name=".AdminMainActivity">
-
-        </activity>
+        <activity android:name=".UserViewReport"></activity>
+        <activity android:name=".AdminMainActivity"></activity>
         <activity
             android:name=".StartActivity"
             android:theme="@style/NoActionBar">
@@ -42,7 +40,7 @@
         <activity
             android:name=".ReportViewActivity"
             android:parentActivityName=".AdminMainActivity"
-            android:theme="@style/NoActionBar"/>
+            android:theme="@style/NoActionBar" />
     </application>
 
 </manifest>

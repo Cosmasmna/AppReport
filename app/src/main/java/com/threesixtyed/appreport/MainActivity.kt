@@ -143,8 +143,18 @@ class MainActivity : AppCompatActivity() {
                 sharePreferences.edit().clear().commit()
                 finish()
                 Toast.makeText(this, "Logout", Toast.LENGTH_LONG).show()
+
+
                 true
             }
+            R.id.viewreport->{
+
+                startActivity(Intent(this, UserViewReport::class.java))
+
+                true
+
+            }
+
             else -> super.onOptionsItemSelected(item)
         }
     }
