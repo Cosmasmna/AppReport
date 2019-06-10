@@ -17,24 +17,24 @@ import kotlinx.android.synthetic.main.user_view_report_activity.*
 
 class UserViewReport : AppCompatActivity() {
 
-    var database:FirebaseDatabase?=null
-    var databaseRef:DatabaseReference?=null
-    lateinit var sharedPreferences:SharedPreferences
+    var database: FirebaseDatabase? = null
+    var databaseRef: DatabaseReference? = null
+    lateinit var sharedPreferences: SharedPreferences
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.user_view_report_activity)
-        var reportList=ArrayList<AppReport>()
-        sharedPreferences=getSharedPreferences("mypref", Context.MODE_PRIVATE)
+        var reportList = ArrayList<AppReport>()
+        sharedPreferences = getSharedPreferences("mypref", Context.MODE_PRIVATE)
 
-        database= FirebaseDatabase.getInstance()
-        databaseRef=FirebaseDatabase.getInstance().getReference("report")
+        database = FirebaseDatabase.getInstance()
+        databaseRef = FirebaseDatabase.getInstance().getReference("report")
 
         var name = sharedPreferences!!.getString("name", "")
-        Toast.makeText(applicationContext,name.toString(),Toast.LENGTH_LONG).show()
+        Toast.makeText(applicationContext, name.toString(), Toast.LENGTH_LONG).show()
 
-        databaseRef!!.addValueEventListener(object :ValueEventListener{
+        databaseRef!!.addValueEventListener(object : ValueEventListener {
             override fun onCancelled(p0: DatabaseError) {
                 TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
             }
@@ -57,12 +57,11 @@ class UserViewReport : AppCompatActivity() {
 
 
                                     val appreport = data.getValue(AppReport::class.java)
-                                    val user_name:String=appreport!!.user_name
+                                    val user_name: String = appreport!!.user_name
 
-                                    if(name.equals(user_name)){
+                                    if (name.equals(user_name)) {
                                         reportList!!.add(appreport!!)
                                     }
-
 
 
                                 }
