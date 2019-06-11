@@ -51,6 +51,7 @@
         android:layout_height="wrap_content"
         android:text="20/6/2019"
         android:textSize="14sp"
+        android:textColor="@color/child"
         app:layout_constraintBottom_toBottomOf="@+id/imageView3"
         app:layout_constraintStart_toStartOf="@+id/txtAppName"
         app:layout_constraintTop_toBottomOf="@+id/txtAppName" />
