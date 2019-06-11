@@ -28,8 +28,8 @@ class UserViewReportAdapter(
         p0.txt_status.text=appreport.get(p1).status
         p0.report_type.text=appreport.get(p1).report_type
         if(appreport.get(p1).status.equals("unresolve")){
-            p0.img_status.setImageResource(R.drawable.progress)
-            p0.img_upper_status.setImageResource(R.drawable.progress)
+            p0.img_status.setImageResource(R.drawable.unsolve)
+            p0.img_upper_status.setImageResource(R.drawable.unsolve)
 
 
         }else if(appreport.get(p1).status.equals("progress")){
@@ -37,12 +37,12 @@ class UserViewReportAdapter(
             p0.img_upper_status.setImageResource(R.drawable.progress)
 
         }else if(appreport.get(p1).status.equals("block")){
-            p0.img_status.setImageResource(R.drawable.progress)
-            p0.img_upper_status.setImageResource(R.drawable.progress)
+            p0.img_status.setImageResource(R.drawable.blocked)
+            p0.img_upper_status.setImageResource(R.drawable.blocked)
 
         }else if(appreport.get(p1).status.equals("complete")){
-            p0.img_status.setImageResource(R.drawable.progress)
-            p0.img_upper_status.setImageResource(R.drawable.progress)
+            p0.img_status.setImageResource(R.drawable.completed)
+            p0.img_upper_status.setImageResource(R.drawable.completed)
 
         }
 
