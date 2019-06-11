@@ -114,8 +114,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:textAlignment="center"
             android:text="fsdfgfsdgdfsgfgfdgsg"
+            android:textAlignment="center"
             android:textColor="@color/child"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/view"
@@ -134,11 +134,11 @@
 
         <TextView
             android:id="@+id/txt_phone_model"
-            android:textAlignment="center"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="ffffffffffffffffff"
+            android:textAlignment="center"
             android:textColor="@color/child"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/view"
@@ -147,10 +147,10 @@
         <TextView
             android:id="@+id/textView16"
             android:layout_width="0dp"
-            android:textAlignment="center"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="Phone Modle"
+            android:textAlignment="center"
             android:textColor="@color/child"
             app:layout_constraintEnd_toStartOf="@+id/view"
             app:layout_constraintStart_toStartOf="parent"
@@ -158,7 +158,6 @@
 
         <View
             android:id="@+id/view3"
-            android:textAlignmet="center"
             android:layout_width="1dp"
             android:layout_height="0dp"
             android:background="@color/header"
@@ -171,22 +170,22 @@
         <TextView
             android:id="@+id/txt_phone_version"
             android:layout_width="0dp"
-            android:textAlignment="center"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="ffffffffffffffffff"
+            android:textAlignment="center"
             android:textColor="@color/child"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/view"
             app:layout_constraintTop_toBottomOf="@+id/txt_phone_model" />
 
         <TextView
-            android:textAlignment="center"
             android:id="@+id/textView17"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="Phone Version"
+            android:textAlignment="center"
             android:textColor="@color/child"
             app:layout_constraintEnd_toStartOf="@+id/view"
             app:layout_constraintStart_toStartOf="parent"
@@ -204,24 +203,24 @@
             app:layout_constraintTop_toTopOf="@+id/textView17" />
 
         <TextView
-            android:textAlignment="center"
             android:id="@+id/txt_report_type"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="ffffffffffffffffff"
+            android:textAlignment="center"
             android:textColor="@color/child"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/view"
             app:layout_constraintTop_toBottomOf="@+id/txt_phone_version" />
 
         <TextView
-            android:textAlignment="center"
             android:id="@+id/textView18"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="Report Type"
+            android:textAlignment="center"
             android:textColor="@color/child"
             app:layout_constraintEnd_toStartOf="@+id/view"
             app:layout_constraintStart_toStartOf="parent"
