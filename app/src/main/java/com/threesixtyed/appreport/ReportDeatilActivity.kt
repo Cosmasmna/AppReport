@@ -135,7 +135,7 @@ class ReportDeatilActivity : AppCompatActivity() {
             et_reportdetail.text.toString(),
             selectedRadio.text.toString(),
             name,
-            "unsolve"
+            "unresolve"
 
 
         )
