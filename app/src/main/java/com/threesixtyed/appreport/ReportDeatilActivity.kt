@@ -26,8 +26,8 @@ class ReportDeatilActivity : AppCompatActivity() {
     lateinit var sharePreferences: SharedPreferences
 
     lateinit var app_name: Serializable
-    val app_version_list = ArrayList<String>()
-    private var databaseReference: DatabaseReference? = null
+    var app_version_list = ArrayList<String>()
+    private var databaseReference: DatabaseReference? =  FirebaseDatabase.getInstance().getReference("app")
     val vL = arrayOf("4.4", "5.0", "5.1", "6.0", "7.0", "7.1", "8.0", "8.1", "9")
 
 
@@ -166,7 +166,7 @@ class ReportDeatilActivity : AppCompatActivity() {
 
         var selected = radioGroup.checkedRadioButtonId
         selectedRadio = findViewById(selected)
-        databaseReference = FirebaseDatabase.getInstance().getReference("app")
+        //databaseReference = FirebaseDatabase.getInstance().getReference("app")
         sharePreferences = getSharedPreferences("mypref", Context.MODE_PRIVATE)
 
 
@@ -183,34 +183,11 @@ class ReportDeatilActivity : AppCompatActivity() {
 
         activity_report_toolbar.setTitle(app_name.toString())
 
-        databaseReference!!.child(app_name.toString()).child("version")
-            .addListenerForSingleValueEvent(object : ValueEventListener {
-                override fun onCancelled(p0: DatabaseError) {
+        app_version_list=getVersionList(app_name.toString())
 
-                }
 
-                override fun onDataChange(dataSnapshot: DataSnapshot) {
-                    if (dataSnapshot.exists()) {
-                        for (h in dataSnapshot.children) {
-                            databaseReference!!.child(app_name.toString()).child("version").child(h.key.toString())
-                                .addListenerForSingleValueEvent(object : ValueEventListener {
-                                    override fun onCancelled(p0: DatabaseError) {
 
-                                    }
 
-                                    override fun onDataChange(p0: DataSnapshot) {
-                                        if (p0.exists()) {
-                                            val version = p0.getValue(AppVersion::class.java)
-                                            Log.i("version##", version!!.v_name)
-                                            app_version_list.add(version!!.v_name)
-                                        }
-                                    }
-                                })
-                        }
-                    }
-                }
-
-            })
         android_version_layout.setOnClickListener {
             showDialog(vL, tv_android_version, "Android Version")
         }
@@ -222,6 +199,41 @@ class ReportDeatilActivity : AppCompatActivity() {
         phone_model_layout.setOnClickListener {
             select_phone_model()
         }
+    }
+
+  fun getVersionList(name: String): ArrayList<String> {
+      val vList=ArrayList<String>()
+
+        databaseReference!!.child(name).child("version")
+            .addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onCancelled(p0: DatabaseError) {
+
+                }
+
+                override fun onDataChange(dataSnapshot: DataSnapshot) {
+                    if (dataSnapshot.exists()) {
+                        for (h in dataSnapshot.children) {
+                            databaseReference!!.child(name).child("version").child(h.key.toString())
+                                .addListenerForSingleValueEvent(object : ValueEventListener {
+                                    override fun onCancelled(p0: DatabaseError) {
+
+                                    }
+
+                                    override fun onDataChange(p0: DataSnapshot) {
+                                        if (p0.exists()) {
+                                            val version = p0.getValue(AppVersion::class.java)
+                                            Log.i("version##", version!!.v_name)
+                                            vList.add(version!!.v_name)
+                                        }
+                                    }
+                                })
+                        }
+                    }
+                }
+
+            })
+
+        return vList
     }
 
     private fun showDialog(vL: Array<String>, tv_android_version: TextView?, s: String) {
