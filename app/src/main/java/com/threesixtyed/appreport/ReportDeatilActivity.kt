@@ -134,7 +134,10 @@ class ReportDeatilActivity : AppCompatActivity() {
             currentDate,
             et_reportdetail.text.toString(),
             selectedRadio.text.toString(),
-            name
+            name,
+            "unsolve"
+
+
         )
 
         databaseReference!!.child(app_name.toString()).child(key)

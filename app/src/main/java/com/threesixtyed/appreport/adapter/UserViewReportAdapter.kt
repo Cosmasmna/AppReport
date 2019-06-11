@@ -14,11 +14,32 @@ class UserViewReportAdapter(val context: Context?, val appreport: ArrayList<AppR
     RecyclerView.Adapter<MyViewHolder>() {
 
     override fun onBindViewHolder(p0: MyViewHolder, p1: Int) {
-//        p0.app_version.text = appreport.get(p1).app_version
-//        p0.android_version.text = appreport.get(p1).android_version
-//        p0.android_model.text = appreport.get(p1).phone_model
-//        p0.report_date.text = appreport.get(p1).report_date
-//        p0.report_detail.text = appreport.get(p1).report_detail
+        p0.app_version.text = appreport.get(p1).app_version
+        p0.android_version.text = appreport.get(p1).android_version
+        p0.android_model.text = appreport.get(p1).phone_model
+        p0.report_date.text = appreport.get(p1).report_date
+        p0.report_detail.text = appreport.get(p1).report_detail
+        p0.txt_status.text=appreport.get(p1).status
+        if(appreport.get(p1).status.equals("unresolve")){
+            p0.img_status.setImageResource(R.drawable.progress)
+            p0.img_upper_status.setImageResource(R.drawable.progress)
+
+
+        }else if(appreport.get(p1).status.equals("progress")){
+            p0.img_status.setImageResource(R.drawable.progress)
+            p0.img_upper_status.setImageResource(R.drawable.progress)
+
+        }else if(appreport.get(p1).status.equals("block")){
+            p0.img_status.setImageResource(R.drawable.progress)
+            p0.img_upper_status.setImageResource(R.drawable.progress)
+
+        }else if(appreport.get(p1).status.equals("complete")){
+            p0.img_status.setImageResource(R.drawable.progress)
+            p0.img_upper_status.setImageResource(R.drawable.progress)
+
+        }
+
+
 
         p0.itemView.setOnClickListener {
             if (p0.layout_detail.visibility == View.GONE) {
@@ -38,7 +59,7 @@ class UserViewReportAdapter(val context: Context?, val appreport: ArrayList<AppR
     }
 
     override fun getItemCount(): Int {
-        return 20
+        return appreport.size
     }
 
     override fun getItemViewType(position: Int): Int {
@@ -47,11 +68,13 @@ class UserViewReportAdapter(val context: Context?, val appreport: ArrayList<AppR
 }
 
 class MyViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-    //    val app_version = view.txt_app_version
-//    val android_version = view.txt_android_version
-//    val android_model = view.txt_android_model
-//    val report_date = view.txt_report_date
-//    val report_detail = view.txt_report_detail
-    val report_detail = view.txt_report_detail
-    val layout_detail = view.layout_detail
+        val app_version = view.txt_app_version
+        val android_version = view.txt_phone_version
+       val android_model = view.txt_phone_model
+       val report_date = view.txtDate
+       val report_detail = view.txt_report_detail
+       val layout_detail = view.layout_detail
+        val txt_status=view.txt_status
+        val img_status=view.img_status
+        val img_upper_status=view.img_upper_status
 }
