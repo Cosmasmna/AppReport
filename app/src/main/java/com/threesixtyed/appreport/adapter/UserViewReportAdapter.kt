@@ -21,8 +21,8 @@ class UserViewReportAdapter(val context: Context?, val appreport: ArrayList<AppR
         p0.report_detail.text = appreport.get(p1).report_detail
         p0.txt_status.text=appreport.get(p1).status
         if(appreport.get(p1).status.equals("unresolve")){
-            p0.img_status.setImageResource(R.drawable.progress)
-            p0.img_upper_status.setImageResource(R.drawable.progress)
+            p0.img_status.setImageResource(R.drawable.unsolve)
+            p0.img_upper_status.setImageResource(R.drawable.unsolve)
 
 
         }else if(appreport.get(p1).status.equals("progress")){
@@ -30,12 +30,12 @@ class UserViewReportAdapter(val context: Context?, val appreport: ArrayList<AppR
             p0.img_upper_status.setImageResource(R.drawable.progress)
 
         }else if(appreport.get(p1).status.equals("block")){
-            p0.img_status.setImageResource(R.drawable.progress)
-            p0.img_upper_status.setImageResource(R.drawable.progress)
+            p0.img_status.setImageResource(R.drawable.blocked)
+            p0.img_upper_status.setImageResource(R.drawable.blocked)
 
         }else if(appreport.get(p1).status.equals("complete")){
-            p0.img_status.setImageResource(R.drawable.progress)
-            p0.img_upper_status.setImageResource(R.drawable.progress)
+            p0.img_status.setImageResource(R.drawable.completed)
+            p0.img_upper_status.setImageResource(R.drawable.completed)
 
         }
 
