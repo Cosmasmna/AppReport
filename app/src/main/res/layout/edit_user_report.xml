@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true">
@@ -13,7 +12,7 @@
         android:focusable="true"
         android:focusableInTouchMode="true">
 
-       <!-- <android.support.design.widget.AppBarLayout
+        <android.support.design.widget.AppBarLayout
             android:id="@+id/uni_info_action_bar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -29,17 +28,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:fitsSystemWindows="true"
-                app:popupTheme="@style/AppTheme.PopupOverlay"
-                app:subtitle="Report"
-                app:title="Chemistry DTP">
+                app:popupTheme="@style/AppTheme.PopupOverlay">
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/cross"/>
             </android.support.v7.widget.Toolbar>
 
-        </android.support.design.widget.AppBarLayout>-->
+        </android.support.design.widget.AppBarLayout>
 
         <TextView
             android:id="@+id/textView"
@@ -51,7 +44,7 @@
             android:text="DTP App info"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/uni_info_action_bar" />
 
 
         <LinearLayout
@@ -244,23 +237,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
-
-        <Button
-            android:id="@+id/btnUpdate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="292dp"
-            android:layout_marginLeft="292dp"
-            android:layout_marginTop="28dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
-            android:background="@drawable/btn_round"
-            android:backgroundTint="@color/colorPrimary"
-            android:text="Update"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.652"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_reportdetail" />
 
     </android.support.constraint.ConstraintLayout>
 </ScrollView>
