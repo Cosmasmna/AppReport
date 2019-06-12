@@ -50,7 +50,7 @@ return  reportViewList.size
 
         p0.status.setOnClickListener {
 
-            showDialog(p0.status,p1)
+            showDialog(p0.status_txt,p1)
         }
 
     }

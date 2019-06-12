@@ -11,6 +11,7 @@ import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.Toolbar
 import android.support.v7.widget.helper.ItemTouchHelper
 import android.util.Log
+import android.view.View
 import android.widget.*
 import com.google.firebase.database.*
 import com.threesixtyed.appreport.adapter.UserViewReportAdapter
@@ -18,6 +19,7 @@ import com.threesixtyed.appreport.model.AppReport
 import kotlinx.android.synthetic.main.user_view_report_activity.*
 import org.jetbrains.anko.find
 import org.jetbrains.anko.singleLine
+import org.jetbrains.anko.toast
 
 class UserViewReport : AppCompatActivity() {
     val vL = arrayOf("4.4", "5.0", "5.1", "6.0", "7.0", "7.1", "8.0", "8.1", "9")
@@ -70,27 +72,20 @@ class UserViewReport : AppCompatActivity() {
                val appName= appNameList.get(position)
 
                 if (direction == ItemTouchHelper.LEFT) {
-                    val reportId=reportList.get(position).report_id
-                    databaseRef!!.child(appNameList.get(position)).child(reportId).removeValue()
-                    appNameList.removeAt(position)
-                    reportList.removeAt(position)
-                    userviewAdapter!!.notifyItemRemoved(position)
-                    userviewAdapter!!.notifyItemRangeChanged(position, reportList.size)
-                    toast("Left")
+                    //Log.i("Status",reportList.get(position).status)
+                    if(reportList.get(position).status.equals("progress")){
+                        Warning()
+                    }
+                    else {
+                        confirmDelete(position)
+                    }
 
                 } else {
 
                     versionList=ReportDeatilActivity().getVersionList(appName)
                     Log.i("VersionListSize",versionList.size.toString())
                     editAlert(position)
-                    toast("Right")
-
-
-
                 }
-
-
-
             }
             override fun onChildDraw(
                 c: Canvas,
@@ -137,6 +132,19 @@ class UserViewReport : AppCompatActivity() {
 
         val itemTouchHelper = ItemTouchHelper(simpleItemTouchCallback)
         itemTouchHelper.attachToRecyclerView(user_view_report_recycle)
+    }
+
+    private fun Warning() {
+        val dialog = AlertDialog.Builder(this)
+            .setTitle("Warning")
+            .setMessage("This report is solving now!!!")
+            .setPositiveButton("Ok") { dialog, which ->
+                userviewAdapter!!.notifyDataSetChanged()
+                dialog.dismiss()
+
+            }
+        val ad=dialog.create()
+        ad.show()
     }
 
     private fun confirmDelete(position: Int) {
@@ -189,6 +197,13 @@ class UserViewReport : AppCompatActivity() {
         d_android_version.text=reportList.get(position).android_version
         d_phone_model.text=reportList.get(position).phone_model
         d_et_reportdetail.append(reportList.get(position).report_detail)
+        Log.i("Status",reportList.get(position).status)
+        if(reportList.get(position).status.equals("complete")) {
+            btnSaveEdit.isEnabled = false
+            btnSaveEdit.visibility=View.GONE
+            view.find<TextView>(R.id.txt_alert_message).visibility=View.VISIBLE
+
+        }
         
         btnSaveEdit.setOnClickListener {
             if (isCheck()){

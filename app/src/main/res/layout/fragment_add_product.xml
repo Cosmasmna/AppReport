@@ -53,17 +53,16 @@
                     android:layout_margin="10dp"
                     android:hint="Application Link" />
             </android.support.design.widget.TextInputLayout>
-            <TextView
-                android:layout_margin="10dp"
+            <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Release Date :"/>
-
-            <DatePicker
-                android:id="@+id/app_release_date"
-                android:layout_width="365dp"
-                android:layout_height="94dp"
-                android:layout_margin="10dp"></DatePicker>
+                android:layout_height="wrap_content">
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/et_app_release_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:hint="Release Date" />
+            </android.support.design.widget.TextInputLayout>
 
             <Button
                 android:id="@+id/btn_application_upload"
