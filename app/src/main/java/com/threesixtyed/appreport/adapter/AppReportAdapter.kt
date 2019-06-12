@@ -38,23 +38,23 @@ return  reportViewList.size
         p0.reportDetailDate.text="Date: "+reportViewList.get(p1).report_date
 
         p0.status.setOnClickListener {
-            showDialog(p0.status)
+            showDialog(p0.status_txt)
         }
 
     }
     private fun showDialog(status: TextView?) {
-        val vL = arrayOf("Unsolve","Progress","Complete","Block")
+        val vL = arrayOf("UNSOLVE","PROGRESS","COMPLETE","BLOCK")
         val alertDialogBuilder: AlertDialog.Builder = AlertDialog.Builder(context, R.style.customizedAlert)
         alertDialogBuilder.setTitle("Status")
         alertDialogBuilder.setItems(vL) { dialog, which ->
             status!!.text = vL[which]
-            if(vL[which].equals("Unsolve"))
+            if(vL[which].equals("UNSOLVE"))
                 status.setTextColor(Color.GRAY)
-            if(vL[which].equals("Progress"))
+            if(vL[which].equals("PROGRESS"))
                 status.setTextColor(Color.GREEN)
-            if(vL[which].equals("Complete"))
+            if(vL[which].equals("COMPLETE"))
                 status.setTextColor(Color.BLUE)
-            if(vL[which].equals("Block"))
+            if(vL[which].equals("BLOCK"))
                 status.setTextColor(Color.RED)
         }
         alertDialogBuilder.show()
@@ -69,4 +69,6 @@ class AppReportHolder (view: View): RecyclerView.ViewHolder(view) {
     val reportUserName=view.user_name
     val reportPhoneModelVersion=view.ph_model_version
     val reportDetailDate=view.report_detail_date
+
+    val status_txt=view.status_text
 }
