@@ -36,7 +36,7 @@ class ReportViewActivity:AppCompatActivity() {
         toolbar.subtitle=appVersion
 
 
-        databaseReference!!.child(appName).addValueEventListener(object :ValueEventListener{
+        databaseReference!!.child(appName).addListenerForSingleValueEvent(object :ValueEventListener{
             override fun onCancelled(p0: DatabaseError) {
 
             }
@@ -59,7 +59,7 @@ class ReportViewActivity:AppCompatActivity() {
 
                     }
                     detailListRecycler.layoutManager=LinearLayoutManager(this@ReportViewActivity)
-                    val adapter=AppReportAdapter(this@ReportViewActivity,reportList)
+                    val adapter=AppReportAdapter(this@ReportViewActivity,reportList,appName)
                     detailListRecycler.adapter=adapter
 
                 }else{

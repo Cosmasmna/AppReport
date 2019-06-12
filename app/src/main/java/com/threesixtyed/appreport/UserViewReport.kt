@@ -70,14 +70,20 @@ class UserViewReport : AppCompatActivity() {
                val appName= appNameList.get(position)
 
                 if (direction == ItemTouchHelper.LEFT) {
-                    confirmDelete(position)
-                    
+                    val reportId=reportList.get(position).report_id
+                    databaseRef!!.child(appNameList.get(position)).child(reportId).removeValue()
+                    appNameList.removeAt(position)
+                    reportList.removeAt(position)
+                    userviewAdapter!!.notifyItemRemoved(position)
+                    userviewAdapter!!.notifyItemRangeChanged(position, reportList.size)
+                    toast("Left")
 
                 } else {
 
                     versionList=ReportDeatilActivity().getVersionList(appName)
                     Log.i("VersionListSize",versionList.size.toString())
                     editAlert(position)
+                    toast("Right")
 
 
 
