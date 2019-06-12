@@ -139,16 +139,15 @@ class MainActivity : AppCompatActivity() {
         return when (item?.itemId) {
             R.id.logout -> {
 
-                /*startActivity(Intent(this, LoginActivity::class.java))
+                startActivity(Intent(this, LoginActivity::class.java))
 
                 sharePreferences.edit().clear().commit()
                 finish()
                 Toast.makeText(this, "Logout", Toast.LENGTH_LONG).show()
-*/
 
-                val dialog = EditUserReportDialog()
-                val ft = supportFragmentManager.beginTransaction()
-                dialog.show(ft, EditUserReportDialog.TAG)
+               // val dialog = EditUserReportDialog()
+               // val ft = supportFragmentManager.beginTransaction()
+              //  dialog.show(ft, EditUserReportDialog.TAG)
                 true
             }
             R.id.viewreport->{

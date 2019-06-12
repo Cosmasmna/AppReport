@@ -4,7 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/card_background_style">
+    android:layout_margin="8dp"
+    android:background="@drawable/card_background_style"
+    android:elevation="4dp"
+    android:paddingBottom="16dp">
 
     <!--<ImageView
         android:id="@+id/cross_image"
@@ -153,17 +156,19 @@
         app:layout_constraintTop_toBottomOf="@+id/user_name" />
 
 
-    <View
+    <!--<View
         android:id="@+id/app_report_detail_end"
         android:layout_width="match_parent"
         android:layout_height="0.1dp"
+
+
         android:layout_marginTop="4dp"
         android:background="#000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintHorizontal_weight="1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ph_model_version" />
+        app:layout_constraintTop_toBottomOf="@+id/ph_model_version" />-->
 
 
 </android.support.constraint.ConstraintLayout>

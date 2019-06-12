@@ -14,7 +14,6 @@ import com.google.firebase.database.*
 import com.threesixtyed.appreport.adapter.UserViewReportAdapter
 import com.threesixtyed.appreport.model.AppReport
 import kotlinx.android.synthetic.main.user_view_report_activity.*
-import org.jetbrains.anko.toast
 
 class UserViewReport : AppCompatActivity() {
 
@@ -61,7 +60,7 @@ class UserViewReport : AppCompatActivity() {
                     reportList.removeAt(position)
                     userviewAdapter!!.notifyItemRemoved(position)
                     userviewAdapter!!.notifyItemRangeChanged(position, reportList.size)
-                    toast("Left")
+                    //toast("Left")
 
                 } else {
 
@@ -70,7 +69,7 @@ class UserViewReport : AppCompatActivity() {
                     Log.i("VersionListSize",versionList.size.toString())
 
                     editAlert(position)
-                    toast("Right")
+                   // toast("Right")
 
 
 
