@@ -108,4 +108,6 @@ class AppReportHolder (view: View): RecyclerView.ViewHolder(view) {
     val reportUserName=view.user_name
     val reportPhoneModelVersion=view.ph_model_version
     val reportDetailDate=view.report_detail_date
+
+    val status_txt=view.status_text
 }
