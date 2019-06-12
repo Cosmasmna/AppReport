@@ -1,10 +1,13 @@
 package com.threesixtyed.appreport.adapter
 
 import android.content.Context
+import android.graphics.Color
+import android.support.v7.app.AlertDialog
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import com.threesixtyed.appreport.R
 import com.threesixtyed.appreport.model.AppReport
 import kotlinx.android.synthetic.main.report_view_list.view.*
@@ -21,18 +24,45 @@ return  reportViewList.size
     }
 
     override fun onBindViewHolder(p0: AppReportHolder, p1: Int) {
-
         p0.reportType.text=reportViewList.get(p1).report_type
         p0.appVersionName.text="Version: "+reportViewList.get(p1).app_version
         p0.appReportDetail.text=reportViewList.get(p1).report_detail
+        p0.appReportDetail.setOnClickListener {
+            p0.appReportDetail.maxLines=Int.MAX_VALUE
+            p0.appReportDetail.text=reportViewList.get(p1).report_detail
+
+        }
         //p0.appReportDetail.text="Application Details Application Details Application Details Application Details Application Details Application Details Application Details Application Details Application Details Application Details Application Details Application Details Application Details Application Details Application Details Application Details Application Details Application Details Application Details Application Details Application Details Application Details Application Details Application Details Application Details Application Details Application Details Application Details Application Details Application Details"
         p0.reportUserName.text=reportViewList.get(p1).user_name
         p0.reportPhoneModelVersion.text=reportViewList.get(p1).phone_model+"("+reportViewList.get(p1).android_version+")"
         p0.reportDetailDate.text="Date: "+reportViewList.get(p1).report_date
+
+        p0.status.setOnClickListener {
+            showDialog(p0.status)
+        }
+
+    }
+    private fun showDialog(status: TextView?) {
+        val vL = arrayOf("Unsolve","Progress","Complete","Block")
+        val alertDialogBuilder: AlertDialog.Builder = AlertDialog.Builder(context, R.style.customizedAlert)
+        alertDialogBuilder.setTitle("Status")
+        alertDialogBuilder.setItems(vL) { dialog, which ->
+            status!!.text = vL[which]
+            if(vL[which].equals("Unsolve"))
+                status.setTextColor(Color.GRAY)
+            if(vL[which].equals("Progress"))
+                status.setTextColor(Color.GREEN)
+            if(vL[which].equals("Complete"))
+                status.setTextColor(Color.BLUE)
+            if(vL[which].equals("Block"))
+                status.setTextColor(Color.RED)
+        }
+        alertDialogBuilder.show()
     }
 }
 
 class AppReportHolder (view: View): RecyclerView.ViewHolder(view) {
+    val status=view.edit_status
    val reportType=view.app_report_type
     val appVersionName=view.app_version_name
     val appReportDetail=view.app_report_detail
