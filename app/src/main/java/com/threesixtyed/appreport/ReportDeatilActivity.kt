@@ -27,7 +27,7 @@ class ReportDeatilActivity : AppCompatActivity() {
 
     lateinit var app_name: Serializable
     var app_version_list = ArrayList<String>()
-    private var databaseReference: DatabaseReference? =  FirebaseDatabase.getInstance().getReference("app")
+    private var databaseReference: DatabaseReference? = FirebaseDatabase.getInstance().getReference("app")
     val vL = arrayOf("4.4", "5.0", "5.1", "6.0", "7.0", "7.1", "8.0", "8.1", "9")
 
 
@@ -160,6 +160,7 @@ class ReportDeatilActivity : AppCompatActivity() {
 
 
     lateinit var selectedRadio: RadioButton
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_report_detail)
@@ -183,7 +184,7 @@ class ReportDeatilActivity : AppCompatActivity() {
 
         activity_report_toolbar.setTitle(app_name.toString())
 
-        app_version_list=getVersionList(app_name.toString())
+        app_version_list = getVersionList(app_name.toString())
 
 
 
@@ -201,8 +202,8 @@ class ReportDeatilActivity : AppCompatActivity() {
         }
     }
 
-  fun getVersionList(name: String): ArrayList<String> {
-      val vList=ArrayList<String>()
+    fun getVersionList(name: String): ArrayList<String> {
+        val vList = ArrayList<String>()
 
         databaseReference!!.child(name).child("version")
             .addListenerForSingleValueEvent(object : ValueEventListener {
