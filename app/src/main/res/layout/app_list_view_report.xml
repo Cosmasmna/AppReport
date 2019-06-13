@@ -13,12 +13,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
         android:src="@mipmap/ic_app_logo"
-        app:layout_constraintEnd_toStartOf="@+id/detail_report_count"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -28,31 +24,27 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:text="Dat Thin Phone (Chemistry)"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.735"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/app_version_report_list"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/app_version_report_list"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
+        android:layout_width="41dp"
+        android:layout_height="18dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
+        android:layout_marginTop="28dp"
         android:text="v2.2.4"
         android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.237"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/app_img"
+        app:layout_constraintTop_toBottomOf="@+id/app_name_report_list" />
 
     <TextView
         android:id="@+id/report_count"
@@ -60,16 +52,16 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="28dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:text="Report Count : 20"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.97"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.781"
+        app:layout_constraintStart_toEndOf="@+id/app_version_report_list"
         app:layout_constraintTop_toBottomOf="@+id/app_name_report_list" />
 
-    <android.support.constraint.ConstraintLayout
+    <!--<android.support.constraint.ConstraintLayout
         android:id="@+id/detail_report_count"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -136,6 +128,6 @@
             app:layout_constraintHorizontal_bias="0.307"
             app:layout_constraintStart_toEndOf="@+id/txt_complete_report"
             app:layout_constraintTop_toBottomOf="@+id/txt_progress_report" />
-    </android.support.constraint.ConstraintLayout>
+    </android.support.constraint.ConstraintLayout>-->
 
 </android.support.constraint.ConstraintLayout>
