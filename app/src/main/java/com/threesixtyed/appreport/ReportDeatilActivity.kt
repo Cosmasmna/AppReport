@@ -15,6 +15,8 @@ import com.google.firebase.database.*
 import com.threesixtyed.appreport.model.AppReport
 import com.threesixtyed.appreport.model.AppVersion
 import kotlinx.android.synthetic.main.activity_report_detail.*
+import org.jetbrains.anko.padding
+import org.jetbrains.anko.singleLine
 import java.io.Serializable
 import java.text.SimpleDateFormat
 import java.util.*
@@ -61,6 +63,9 @@ class ReportDeatilActivity : AppCompatActivity() {
     }
 
     private fun confirmSendDialog() {
+
+        var selected = radioGroup.checkedRadioButtonId
+        selectedRadio = findViewById(selected)
         val alertDialogBuilder: AlertDialog.Builder = AlertDialog.Builder(this, R.style.customizedAlert)
 
         var alertDialog = alertDialogBuilder.create()
@@ -165,8 +170,6 @@ class ReportDeatilActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_report_detail)
 
-        var selected = radioGroup.checkedRadioButtonId
-        selectedRadio = findViewById(selected)
         //databaseReference = FirebaseDatabase.getInstance().getReference("app")
         sharePreferences = getSharedPreferences("mypref", Context.MODE_PRIVATE)
 
@@ -198,7 +201,7 @@ class ReportDeatilActivity : AppCompatActivity() {
             showDialog(someStrings, tv_app_version, "App Version")
         }
         phone_model_layout.setOnClickListener {
-            select_phone_model()
+            select_phone_model(tv_phone_model)
         }
     }
 
@@ -237,7 +240,7 @@ class ReportDeatilActivity : AppCompatActivity() {
         return vList
     }
 
-    private fun showDialog(vL: Array<String>, tv_android_version: TextView?, s: String) {
+     fun showDialog(vL: Array<String>, tv_android_version: TextView?, s: String) {
 
         val alertDialogBuilder: AlertDialog.Builder = AlertDialog.Builder(this, R.style.customizedAlert)
         alertDialogBuilder.setTitle(s)
@@ -247,9 +250,16 @@ class ReportDeatilActivity : AppCompatActivity() {
         alertDialogBuilder.show()
     }
 
-    private fun select_phone_model() {
+     fun select_phone_model(tv_phone_model: TextView) {
         val et_ph_model = EditText(this)
-        et_ph_model.hint = "Enter phone model"
+        et_ph_model.singleLine=true
+
+         et_ph_model.setPadding(35,35,35,35)
+         if (tv_phone_model.text.equals("")) {
+             et_ph_model.hint = "Enter phone model"
+         }else{
+             et_ph_model.append(tv_phone_model.text)
+         }
         val dialog: AlertDialog = AlertDialog.Builder(this)
             .setTitle("Phone Model")
             .setView(et_ph_model)

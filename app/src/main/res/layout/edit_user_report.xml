@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true">
@@ -48,7 +49,7 @@
 
 
         <LinearLayout
-            android:id="@+id/app_version_layout"
+            android:id="@+id/edit_app_version_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -76,7 +77,7 @@
                 android:textSize="18dp" />
 
             <TextView
-                android:id="@+id/tv_app_version"
+                android:id="@+id/dialog_app_version"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
@@ -97,10 +98,10 @@
             android:text="User Phone info"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/app_version_layout" />
+            app:layout_constraintTop_toBottomOf="@+id/edit_app_version_layout" />
 
         <LinearLayout
-            android:id="@+id/android_version_layout"
+            android:id="@+id/edit_android_version_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -129,7 +130,7 @@
                 android:textSize="18dp" />
 
             <TextView
-                android:id="@+id/tv_android_version"
+                android:id="@+id/dialog_android_version"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
@@ -142,7 +143,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/phone_model_layout"
+            android:id="@+id/edit_phone_model_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -156,7 +157,7 @@
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/android_version_layout">
+            app:layout_constraintTop_toBottomOf="@+id/edit_android_version_layout">
 
             <TextView
                 android:layout_width="match_parent"
@@ -170,7 +171,7 @@
                 android:textSize="18dp" />
 
             <TextView
-                android:id="@+id/tv_phone_model"
+                android:id="@+id/dialog_phone_model"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
@@ -192,10 +193,10 @@
             android:text="Report type"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/phone_model_layout" />
+            app:layout_constraintTop_toBottomOf="@+id/edit_phone_model_layout" />
 
         <RadioGroup
-            android:id="@+id/radioGroup"
+            android:id="@+id/dialogRadioGroup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -205,7 +206,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView3">
 
             <RadioButton
-                android:id="@+id/radio_bugreport"
+                android:id="@+id/dialog_radio_bugreport"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="20dp"
@@ -213,14 +214,14 @@
                 android:text="Bug Report" />
 
             <RadioButton
-                android:id="@+id/radio_requestfeatures"
+                android:id="@+id/dialog_radio_requestfeatures"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Request Features" />
         </RadioGroup>
 
         <EditText
-            android:id="@+id/et_reportdetail"
+            android:id="@+id/dialog_et_reportdetail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -233,10 +234,46 @@
             android:gravity="top"
             android:hint="Write report detail..."
             android:inputType="textMultiLine"
-            android:padding="8dp"
+            android:paddingLeft="16dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="80dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+            app:layout_constraintTop_toBottomOf="@+id/dialogRadioGroup" />
+
+        <TextView
+            android:id="@+id/txt_alert_message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:gravity="center"
+            android:text="This report is completed"
+            android:textColor="#FA1F1F"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dialog_et_reportdetail" />
+
+        <Button
+            android:id="@+id/btnSaveEdit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:text="Save"
+            android:textColor="#fff"
+            android:background="@drawable/btn_round"
+            android:backgroundTint="@color/colorPrimary"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dialog_et_reportdetail"
+             />
 
     </android.support.constraint.ConstraintLayout>
 </ScrollView>
